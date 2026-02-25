@@ -5,7 +5,7 @@ class_name EatingZone extends Area2D
 @warning_ignore('unused_signal') signal planet_suck(planet : Planet)
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("space") and timer.is_stopped():
+	if Input.is_action_just_pressed("space"):# and timer.is_stopped():
 		set_toggle_zone(true)
 		timer.start()
 		await get_tree().create_timer(0.05).timeout

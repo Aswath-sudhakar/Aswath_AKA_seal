@@ -43,7 +43,6 @@ func parent_planet_to_line_follow(planet : Planet) -> void:
 	
 	paths_array.append(path)
 
-
 func space_out_planets() -> void:
 	var progress_amount : float = 0
 	for child in paths_array:
@@ -58,7 +57,6 @@ func _on_bad_planet_eaten() -> void:
 func call_planet_decrease() -> void:
 	planet_got_eaten.emit()
 
-
 func progress_paths() -> void:
 	for path : EldritchParticleFollow in paths_array:
-		path.progress_ratio += path_movement_percent
+		get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BACK).tween_property(path, "progress_ratio", path.progress_ratio + path_movement_percent, 0.25)

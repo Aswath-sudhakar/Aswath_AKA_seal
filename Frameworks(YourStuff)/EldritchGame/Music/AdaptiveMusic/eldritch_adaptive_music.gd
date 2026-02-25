@@ -57,11 +57,11 @@ func start():
 	master_track.play()
 	
 func lose():
-	await current_four_bar
+	await current_bar
 	master_track.stop()
 	lose_outro.play()
 
 func win():
-	await current_four_bar
+	await current_bar
 	master_track.stop()
 	win_outro.play()

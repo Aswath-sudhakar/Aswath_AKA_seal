@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bjtulespe1alq"]
 
-[ext_resource type="Script" uid="uid://b2ceqh4b8klx4" path="res://EldritchGame/EatingZone/eating_zone.gd" id="1_uuyp0"]
+[ext_resource type="Script" uid="uid://b2ceqh4b8klx4" path="res://Frameworks(YourStuff)/EldritchGame/EatingZone/eating_zone.gd" id="1_uuyp0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uuyp0"]
-size = Vector2(108, 106)
+size = Vector2(182, 106)
 
 [node name="EatingZone" type="Area2D" unique_id=210013374]
 collision_mask = 0
