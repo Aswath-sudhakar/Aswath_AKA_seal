@@ -1,5 +1,8 @@
 class_name Monsta extends Sprite2D
 
+signal bad_planet_eaten
+signal good_planet_eaten(hit_was_good : bool)
+
 @onready var eating_zone: EatingZone = $EatingZone
 @onready var marker_2d: Marker2D = $Marker2D
 @onready var clap: AudioStreamPlayer = $Clap
@@ -11,13 +14,23 @@ func _ready() -> void:
 	eating_zone.planet_suck.connect(suck_in_planet)
 
 func suck_in_planet(planet : Planet):
+	var hit_was_good : bool
 	await adaptive_music.current_beat
+	
 	if adaptive_music.bar_index % 4 == 1:
 		print("Good hit!")
+		hit_was_good = true
 	elif adaptive_music.bar_index % 4 == 2:
 		print("Dragging!")
+		hit_was_good = false
 	else:
 		print("Rushing!")
+		hit_was_good = false
+	
+	if planet is GoodPlanet:
+		good_planet_eaten.emit(hit_was_good)
+	else:
+		bad_planet_eaten.emit()
 	
 	clap.play()
 	move_planet_to_marker(planet)

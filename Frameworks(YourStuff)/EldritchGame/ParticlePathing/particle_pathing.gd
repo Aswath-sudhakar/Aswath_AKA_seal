@@ -5,18 +5,16 @@ const GOOD_PLANET = preload("uid://jaq2sk636hlb")
 
 @onready var adaptive_music: EldritchAdaptiveMusic = $EldritchAdaptiveMusic as EldritchAdaptiveMusic
 
-signal planet_got_eaten
-signal bad_planet_eaten
-
+var eldritch_game : EldritchGame
 var path_movement_percent : float
 var planets : Array[Planet]
 var paths_array : Array[EldritchParticleFollow] = []
 
-@export var planets_to_spawn : Array[bool]
-#@export var speed : float = 0.1
 
+@export var planets_to_spawn : Array[bool]
 
 func _ready() -> void:
+	eldritch_game = get_tree().get_first_node_in_group("EldritchGame")
 	initialize_planets()
 	adaptive_music.start()
 	connect_adaptive_music_signals()
@@ -29,14 +27,11 @@ func initialize_planets() -> void:
 		if toggle:
 			good_planet = GOOD_PLANET.instantiate() as GoodPlanet
 			parent_planet_to_line_follow(good_planet)
-			(get_parent() as EldritchGame).increase_planet_count()
-			good_planet.planet_eaten.connect(call_planet_decrease)
 		else:
 			#bad_planet = BAD_PLANET.instantiate() as BadPlanet
-			#bad_planet.planet_eaten.connect(_on_bad_planet_eaten)
 			#parent_planet_to_line_follow(bad_planet)
 			print('instancing bad planet')
-	path_movement_percent = 1.0 / (get_parent() as EldritchGame).planet_count
+	path_movement_percent = 1.0 / planets.size()
 	space_out_planets()
 
 func connect_adaptive_music_signals() -> void:
@@ -55,12 +50,6 @@ func space_out_planets() -> void:
 	for path in paths_array:
 		progress_amount += ( 1 / float(planets.size()) )
 		path.progress_ratio = progress_amount
-
-func _on_bad_planet_eaten() -> void:
-	bad_planet_eaten.emit()
-
-func call_planet_decrease() -> void:
-	planet_got_eaten.emit()
 
 func progress_paths() -> void:
 	for path : EldritchParticleFollow in paths_array:
