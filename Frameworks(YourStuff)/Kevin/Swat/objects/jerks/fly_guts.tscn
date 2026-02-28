@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bl2bxa4k81ykd"]
+
+[node name="Fly Guts" type="CPUParticles2D" unique_id=1029892673]
+modulate = Color(0, 0, 0, 1)
+z_index = -2
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.75
+initial_velocity_min = 307.33
+initial_velocity_max = 307.33
+scale_amount_min = 2.0
+scale_amount_max = 2.0

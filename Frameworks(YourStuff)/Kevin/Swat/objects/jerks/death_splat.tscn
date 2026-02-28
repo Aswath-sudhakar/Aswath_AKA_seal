@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://emnfda5k6q7q"]
+
+[ext_resource type="Texture2D" uid="uid://bxcgtc3jh7vr1" path="res://assets/jerks/death_parts/splat.png" id="1_gscfj"]
+[ext_resource type="Script" uid="uid://bm5n8t8ny7wnx" path="res://objects/jerks/death_splat.gd" id="2_340jb"]
+
+[node name="Death Splat" type="Sprite2D" unique_id=1904000814]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("1_gscfj")
+script = ExtResource("2_340jb")

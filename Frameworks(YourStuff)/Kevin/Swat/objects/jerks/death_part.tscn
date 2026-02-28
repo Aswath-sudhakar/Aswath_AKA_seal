@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://duy4a4kg1apef"]
+
+[ext_resource type="Script" uid="uid://defexn6sojlan" path="res://objects/jerks/death_part.gd" id="1_oqgsl"]
+[ext_resource type="Texture2D" uid="uid://k36pn3ybas6u" path="res://assets/jerks/death_parts/eye.png" id="2_oqgsl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dvjyc"]
+radius = 4.0
+
+[node name="Death Part" type="RigidBody2D" unique_id=7440086]
+z_index = -1
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_oqgsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1313224797]
+texture_filter = 1
+texture = ExtResource("2_oqgsl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1205027890]
+shape = SubResource("CircleShape2D_dvjyc")

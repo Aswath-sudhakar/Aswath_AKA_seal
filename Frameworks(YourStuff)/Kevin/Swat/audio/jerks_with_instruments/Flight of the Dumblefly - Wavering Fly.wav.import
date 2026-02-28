@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cpfbu5pc3f4jh"
+path="res://.godot/imported/Flight of the Dumblefly - Wavering Fly.wav-76f89d24004933dc101d7dbb945d6954.sample"
+
+[deps]
+
+source_file="res://Frameworks(YourStuff)/Kevin/Swat/audio/jerks_with_instruments/Flight of the Dumblefly - Wavering Fly.wav"
+dest_files=["res://.godot/imported/Flight of the Dumblefly - Wavering Fly.wav-76f89d24004933dc101d7dbb945d6954.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

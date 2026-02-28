@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://6p8uik27q6fv"]
+
+[ext_resource type="Script" uid="uid://cjkwubul3ep1t" path="res://Frameworks(YourStuff)/Kevin/Swat/scenes/game.gd" id="1_io63t"]
+[ext_resource type="PackedScene" uid="uid://comrvsmjkh4ls" path="res://Frameworks(YourStuff)/Kevin/Swat/objects/splash_text.tscn" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://w70142njrkdl" path="res://Frameworks(YourStuff)/Kevin/Swat/objects/world_boundary.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dj6ya0rfeqwoh" path="res://Frameworks(YourStuff)/Kevin/Swat/objects/swatter.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://8up3l7rp72ch" path="res://Frameworks(YourStuff)/Kevin/Swat/objects/move_mouse_text.tscn" id="3_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://bogstkcyodj4r" path="res://Frameworks(YourStuff)/Kevin/Swat/objects/the_music_man.tscn" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://cxyn42dr8v8lh" path="res://Frameworks(YourStuff)/Kevin/Swat/assets/misc/yellow_wallpaper.png" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dfnl6b32nlu3f" path="res://Frameworks(YourStuff)/Kevin/Swat/objects/vignette.tscn" id="8_gee14"]
+[ext_resource type="AudioStream" uid="uid://c4dqxjg6tdlns" path="res://Frameworks(YourStuff)/Kevin/Swat/audio/jerks_with_instruments/Flight of the Dumblefly - Impending Doom.wav" id="9_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://dmjoqc250h53x" path="res://Frameworks(YourStuff)/Kevin/Swat/audio/win/measure_1.wav" id="10_vtaks"]
+
+[sub_resource type="Animation" id="Animation_lnu2h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lbhrr"]
+resource_name = "shake_1"
+length = 0.05
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, -8), Vector2(8, 8), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iywne"]
+resource_name = "shake_2"
+length = 0.05
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8, 0), Vector2(4, -8), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p57ef"]
+resource_name = "shake_3"
+length = 0.05
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-4, -8), Vector2(0, 8), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iywne"]
+_data = {
+&"RESET": SubResource("Animation_lnu2h"),
+&"shake_1": SubResource("Animation_lbhrr"),
+&"shake_2": SubResource("Animation_iywne"),
+&"shake_3": SubResource("Animation_p57ef")
+}
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "behold"
+length = 4.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-80.0, -15.0, -10.0, -5.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtaks"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"behold": SubResource("Animation_0tnpc")
+}
+
+[node name="Game" type="Node2D" unique_id=353073593]
+script = ExtResource("1_io63t")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1049476917]
+zoom = Vector2(2.5, 2.5)
+
+[node name="Splash Text" parent="." unique_id=1412981790 instance=ExtResource("2_p57ef")]
+
+[node name="Move Mouse Text" parent="." unique_id=286819538 instance=ExtResource("3_u5sy4")]
+position = Vector2(0, 104)
+
+[node name="World Boundary" parent="." unique_id=1067921333 instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 128)
+
+[node name="World Boundary2" parent="." unique_id=1575785300 instance=ExtResource("2_yqjtg")]
+position = Vector2(0, -128)
+rotation = 3.1415927
+
+[node name="World Boundary3" parent="." unique_id=948232993 instance=ExtResource("2_yqjtg")]
+position = Vector2(-232, 0)
+rotation = 1.5707964
+
+[node name="World Boundary4" parent="." unique_id=120549340 instance=ExtResource("2_yqjtg")]
+position = Vector2(232, 0)
+rotation = -1.5707964
+
+[node name="Swatter" parent="." unique_id=398974462 instance=ExtResource("3_lnu2h")]
+position = Vector2(0, 224)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=442434938]
+libraries/ = SubResource("AnimationLibrary_iywne")
+
+[node name="The Music Man" parent="." unique_id=530888649 instance=ExtResource("4_lbhrr")]
+
+[node name="Next Game Timer" type="Timer" parent="." unique_id=1217779135]
+wait_time = 2.5
+one_shot = true
+
+[node name="Background" type="Sprite2D" parent="." unique_id=174902757]
+z_index = -5
+texture = ExtResource("5_iywne")
+
+[node name="Vignette" parent="." unique_id=763071825 instance=ExtResource("8_gee14")]
+
+[node name="Impending Doom" type="AudioStreamPlayer" parent="." unique_id=1246950936]
+stream = ExtResource("9_0tnpc")
+volume_db = -80.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Impending Doom" unique_id=1717667105]
+libraries/ = SubResource("AnimationLibrary_vtaks")
+
+[node name="Win Sound" type="AudioStreamPlayer" parent="." unique_id=95972006]
+stream = ExtResource("10_vtaks")
+volume_db = 5.0
+
+[connection signal="timeout" from="Next Game Timer" to="." method="_on_next_game_timer_timeout"]
