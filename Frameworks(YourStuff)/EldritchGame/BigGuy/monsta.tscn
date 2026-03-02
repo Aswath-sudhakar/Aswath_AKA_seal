@@ -137,6 +137,7 @@ position = Vector2(0, -120)
 stream = SubResource("AudioStreamRandomizer_85suy")
 
 [node name="MonstaFront" type="Sprite2D" parent="." unique_id=253271097]
+z_index = 1
 texture = ExtResource("4_85suy")
 
 [node name="MonstaBack" type="Sprite2D" parent="." unique_id=342195324]
@@ -144,6 +145,7 @@ z_index = -2
 texture = ExtResource("5_uomo2")
 
 [node name="DaMonsta" type="Sprite2D" parent="." unique_id=306832098]
+z_index = 1
 texture = ExtResource("6_uomo2")
 hframes = 5
 vframes = 4

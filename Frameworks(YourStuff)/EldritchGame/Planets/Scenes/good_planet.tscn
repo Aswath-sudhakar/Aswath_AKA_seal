@@ -8,7 +8,7 @@
 radius = 24.0
 
 [node name="Planet" type="Node2D" unique_id=2078059064]
-z_index = 1
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_y1esw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=881555108]

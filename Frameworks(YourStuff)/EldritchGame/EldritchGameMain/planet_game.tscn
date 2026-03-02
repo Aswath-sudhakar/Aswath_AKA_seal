@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bh166ecxqy5qu" path="res://Frameworks(YourStuff)/EldritchGame/Instructions/introduction_screen.tscn" id="12_thfao"]
 [ext_resource type="PackedScene" uid="uid://c0yej11t1qghx" path="res://Frameworks(YourStuff)/EldritchGame/EndingScreen/ending_screen.tscn" id="13_pd8i2"]
 
-[sub_resource type="Curve2D" id="Curve2D_pd8i2"]
+[sub_resource type="Curve2D" id="Curve2D_cv843"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 330, 23, 0, 0, 0, 0, -35, 26, 0, 0, 0, 0, -163, 24, 0, 0, 0, 0, -255, 72, 0, 0, 0, 0, -238, 119, 0, 0, 0, 0, -159, 154, 0, 0, 0, 0, -26, 162, 0, 0, 0, 0, 330, 161, 0, 0, 0, 0, 470, 115, 0, 0, 0, 0, 462, 62, 0, 0, 0, 0, 330, 23)
@@ -29,7 +29,7 @@ script = ExtResource("1_ayi0r")
 [node name="ParticlePathing" parent="." unique_id=248845500 instance=ExtResource("2_yw6km")]
 position = Vector2(440, 304)
 scale = Vector2(1.325, 1.325)
-curve = SubResource("Curve2D_pd8i2")
+curve = SubResource("Curve2D_cv843")
 planets_to_spawn = Array[bool]([true, true, false, true, true, false, true, true, false, true, true, false])
 
 [node name="PlanetSwitcher" parent="." unique_id=1189403418 instance=ExtResource("3_pd8i2")]
@@ -103,4 +103,5 @@ position = Vector2(576, 320)
 [node name="EndingScreen" parent="." unique_id=320439500 instance=ExtResource("13_pd8i2")]
 z_index = 10
 position = Vector2(576, 320)
+
 [editable path="PlanetSwitcher"]
