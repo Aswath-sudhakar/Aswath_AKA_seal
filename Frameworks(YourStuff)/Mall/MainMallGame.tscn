@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://dro5d573niwan"]
 
 [ext_resource type="Script" uid="uid://6cxuvycm8n6m" path="res://Frameworks(YourStuff)/Mall/main_mall_game.gd" id="1_ddgo5"]
+[ext_resource type="Texture2D" uid="uid://b4jpisvxiyaks" path="res://Frameworks(YourStuff)/Mall/Assets/stage background.png" id="2_fky30"]
 
 [node name="MainMallGame" type="Node2D" unique_id=30059727]
 script = ExtResource("1_ddgo5")
+
+[node name="StageBackground" type="Sprite2D" parent="." unique_id=824705483]
+position = Vector2(575, 324)
+scale = Vector2(5.747321, 5.7619076)
+texture = ExtResource("2_fky30")

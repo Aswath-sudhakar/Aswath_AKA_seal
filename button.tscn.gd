@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 @export var hover_scale := 1.2
 @export var scale_speed := 0.15
