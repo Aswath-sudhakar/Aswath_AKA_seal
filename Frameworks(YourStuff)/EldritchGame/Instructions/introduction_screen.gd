@@ -8,12 +8,11 @@ func _ready() -> void:
 	get_tree().paused = true
 	animated_sprite_2d.play('new_animation')
 	#animation_player.play("intro")
-	await get_tree().create_timer(2.0).timeout
-	do_introduction()
 
 
 
 func do_introduction() -> void:
+	await get_tree().create_timer(2.0).timeout
 	dissapear.do_tween()
 	await dissapear.tween.finished
 	get_tree().paused = false

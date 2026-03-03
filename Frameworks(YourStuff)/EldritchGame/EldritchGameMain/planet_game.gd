@@ -20,6 +20,7 @@ var ending_game : bool = false
 @onready var time_left_notifier: ControlNodeEffectSequencer = $TextureProgressBar/TimeLeftNotifier as ControlNodeEffectSequencer
 @onready var ending_screen: EldritchEndingScreen = $EndingScreen
 @onready var planet_switcher: PlanetSwitcher = $PlanetSwitcher as PlanetSwitcher
+@onready var introduction_screen: EldritchInstructionScreen = $IntroductionScreen
 
 
 @warning_ignore("unused_signal") signal switch_to_new_scene
@@ -27,15 +28,20 @@ var ending_game : bool = false
 
 var planets_to_eat : int = 0
 
+#func _ready() -> void:
+	#Input.set_custom_mouse_cursor(MOUSE_CURSOR)
+	#_start_game()
+	#await eldritch_adaptive_music.intro.finished
+	#planet_switcher.spawn_in_new_path()
+	#round_started = true
+	#max_time = time * 100 * 2
+	#texture_progress_bar.max_value = max_time
+	#timer.start(time)
+
 func _ready() -> void:
-	Input.set_custom_mouse_cursor(MOUSE_CURSOR)
-	_start_game()
-	await eldritch_adaptive_music.intro.finished
-	planet_switcher.spawn_in_new_path()
-	round_started = true
-	max_time = time * 100 * 2
-	texture_progress_bar.max_value = max_time
-	timer.start(time)
+	super()
+	if !game_manager:
+		_start_game()
 
 
 func _process(_delta: float) -> void:
@@ -51,12 +57,22 @@ func _process(_delta: float) -> void:
 
 
 func _start_game():
+	introduction_screen.do_introduction()
+	Input.set_custom_mouse_cursor(MOUSE_CURSOR)
+	await eldritch_adaptive_music.intro.finished
+	planet_switcher.spawn_in_new_path()
+	round_started = true
+	max_time = time * 100 * 2
+	texture_progress_bar.max_value = max_time
+	timer.start(time)
+	
 	monsta.bad_planet_eaten.connect(_on_bad_planet_eaten)
 	monsta.good_planet_eaten.connect(_on_good_planet_eaten)
 
 func win_game():
 	if ending_game: return
 	ending_game = true
+	timer.start(max_time)
 	particle_pathing.should_be_moving = false
 	texture_progress_bar.value = max_time
 	eldritch_adaptive_music.win()
@@ -64,7 +80,8 @@ func win_game():
 	ending_screen.do_ending()
 	await ending_screen.animation_player.animation_finished
 	end_game.emit(true)
-	get_tree().quit()
+	if !game_manager:
+		get_tree().quit()
 
 func lose_game():
 	if ending_game: return
@@ -76,7 +93,8 @@ func lose_game():
 	ending_screen.do_ending()
 	await ending_screen.animation_player.animation_finished
 	end_game.emit(false)
-	get_tree().quit()
+	if !game_manager:
+		get_tree().quit()
 
 func _on_good_planet_eaten(hit_was_good : bool):
 	planets_to_eat -= 1
