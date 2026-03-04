@@ -24,7 +24,7 @@ const EXAMPLE_SCENE_MUSIC = preload("res://ProoblesToys(PolishTools)/Music/Examp
 const PONG = preload("res://Frameworks(YourStuff)/Pong;)/scenes/main.tscn")
 const PLANET_GAME = preload("res://Frameworks(YourStuff)/EldritchGame/EldritchGameMain/planet_game.tscn")
 
-var all_games : Array[PackedScene] = [TRICK_TAPE, BASEPLATE, PONG]
+var all_games : Array[PackedScene] = [ PLANET_GAME, PONG]
 
 ## List of games left to play this stage before time scale increases
 var games_to_play_this_stage : Array[PackedScene]
