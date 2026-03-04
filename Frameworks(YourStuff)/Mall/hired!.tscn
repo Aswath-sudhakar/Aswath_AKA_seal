@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b4kg1ci5tsd33"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cggei"]
+
+[node name="hired!" type="RigidBody2D" unique_id=926083924]
+visible = false
+rotation = -0.49851117
+collision_layer = 0
+collision_mask = 0
+constant_torque = 300.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=472502095]
+modulate = Color(0.8745098, 0.44313726, 0.14901961, 1)
+offset_left = -23.521507
+offset_top = -12.783428
+offset_right = 33.236916
+offset_bottom = 10.738079
+text = "Hired!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=485227939]
+shape = SubResource("CircleShape2D_cggei")
