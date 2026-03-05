@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7pge5pbdlaj1"
+path="res://.godot/imported/drums calm stem.wav-4fc40b5b4b5d0dbe85f2994955d53c9e.sample"
+
+[deps]
+
+source_file="res://Frameworks(YourStuff)/Scary_Music_Jam/Music/Sound Stuff/Calm Music/drums calm stem.wav"
+dest_files=["res://.godot/imported/drums calm stem.wav-4fc40b5b4b5d0dbe85f2994955d53c9e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxnl0l7gfxiyp"
+path="res://.godot/imported/winning sound.wav-12bd97e139a2ab7d7a37bfd336ae62e0.sample"
+
+[deps]
+
+source_file="res://Frameworks(YourStuff)/Scary_Music_Jam/Music/Sound Stuff/Sound Effects/winning sound.wav"
+dest_files=["res://.godot/imported/winning sound.wav-12bd97e139a2ab7d7a37bfd336ae62e0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

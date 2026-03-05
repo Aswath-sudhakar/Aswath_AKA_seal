@@ -41,6 +41,7 @@ fill_from = Vector2(0.491453, 0.4871795)
 fill_to = Vector2(0.86752135, 0.12820514)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmwhb"]
+radius = 1.0
 
 [sub_resource type="Gradient" id="Gradient_gb75m"]
 offsets = PackedFloat32Array(0.25903615, 0.9578313)
@@ -201,7 +202,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(256, 13.9999695)]
+"values": [Vector2(250.6, 17)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -326,10 +327,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2.6333334, 4.1000004, 4.4333334),
-"transitions": PackedFloat32Array(2.0705302, 0.36602148, 1),
+"times": PackedFloat32Array(0.033333335, 2.6333334, 4.1000004, 4.4333334),
+"transitions": PackedFloat32Array(1, 2.0705302, 0.36602148, 1),
 "update": 0,
-"values": [Vector2(821, 17), Vector2(1226, 17), Vector2(1288, 17)]
+"values": [Vector2(821, 17), Vector2(821, 17), Vector2(1226, 17), Vector2(1288, 17)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -350,10 +351,10 @@ tracks/2/path = NodePath("../Curtain2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.6333334, 4.1000004, 4.4333334),
-"transitions": PackedFloat32Array(2.0705302, 0.36602148, 1),
+"times": PackedFloat32Array(0, 2.6333334, 4.1000004, 4.4333334),
+"transitions": PackedFloat32Array(1, 2.0705302, 0.36602148, 1),
 "update": 0,
-"values": [Vector2(250.6, 17), Vector2(-155.57, 17), Vector2(-200, 17)]
+"values": [Vector2(250.6, 17), Vector2(250.6, 17), Vector2(-155.57, 17), Vector2(-200, 17)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -783,7 +784,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 96.39108, 106.66256)
 
 [node name="Curtain2" type="Sprite2D" parent="." unique_id=659708450]
-position = Vector2(256, 13.9999695)
+position = Vector2(250.6, 17)
 scale = Vector2(5.8998637, 5.8998637)
 texture = ExtResource("7_wmwhb")
 offset = Vector2(8.813763, 50.509636)
@@ -841,6 +842,7 @@ texture = ExtResource("17_565h4")
 
 [node name="Light" type="Sprite2D" parent="Bar" unique_id=1762328907]
 position = Vector2(-33.179222, -52.777317)
+rotation = 0.77804434
 scale = Vector2(0.676193, 0.676193)
 texture = ExtResource("18_8map5")
 offset = Vector2(34.888245, 55.113358)

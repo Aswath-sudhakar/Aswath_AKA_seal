@@ -31,4 +31,10 @@ func _start_game() -> void:
 	button.show()
 	timer = 2/get_intensity()
 	await time_done
+	if won:
+		$ppl.play("win")
+		$ppl.scale = $ppl.scale * .9
+	else:
+		$explosion.play("default")
+	await get_tree().create_timer(.2).timeout
 	end_game.emit(won) #defaults to false if button is not pressed

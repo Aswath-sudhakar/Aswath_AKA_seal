@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://vrprcub7qvai"
+path="res://.godot/imported/noise sound monster stem.wav-136c8f88c97222f9246d1094f66f3155.sample"
+
+[deps]
+
+source_file="res://Frameworks(YourStuff)/Scary_Music_Jam/Music/Sound Stuff/Monster Music/noise sound monster stem.wav"
+dest_files=["res://.godot/imported/noise sound monster stem.wav-136c8f88c97222f9246d1094f66f3155.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

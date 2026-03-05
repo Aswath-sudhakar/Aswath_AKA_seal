@@ -76,13 +76,14 @@ stream = ExtResource("4_6krua")
 script = ExtResource("5_ciw38")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="TransitionManager" unique_id=1318693183]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="SubViewport" type="SubViewport" parent="TransitionManager/SubViewportContainer" unique_id=1620155936]
 handle_input_locally = false
 size = Vector2i(1152, 648)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Game" parent="TransitionManager/SubViewportContainer/SubViewport" unique_id=582359250 instance=ExtResource("6_m5b0i")]
 

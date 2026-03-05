@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://difixe6s5djyl"]
+
+[ext_resource type="Script" uid="uid://bhh6bgo38mulq" path="res://Monsters/good_monster.gd" id="1_wma2p"]
+[ext_resource type="Texture2D" uid="uid://bfiiq6ssbxp2u" path="res://Assets/Good_Skeleton.PNG" id="2_ahjfv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ff3u"]
+
+[node name="GoodMonster" type="Node2D" unique_id=634898273]
+visible = false
+script = ExtResource("1_wma2p")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=853937343]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1839388331]
+shape = SubResource("RectangleShape2D_1ff3u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=794026426]
+position = Vector2(-0.99999994, -28)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_ahjfv")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1663604923]
+position = Vector2(1.5258789e-05, 0)
+color = Color(1, 0.6039216, 0.30980393, 1)
+texture = ExtResource("2_ahjfv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

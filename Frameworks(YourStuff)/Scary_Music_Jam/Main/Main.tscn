@@ -1,0 +1,187 @@
+[gd_scene format=4 uid="uid://ctlvcejfmwli1"]
+
+[ext_resource type="Script" uid="uid://dxinkx58toeoy" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Main/main.gd" id="1_s6y30"]
+[ext_resource type="Texture2D" uid="uid://b15drw1v1jv1b" path="res://Frameworks(YourStuff)/Scary_Music_Jam/TileMap/IsometricTilesResized2.png" id="2_amygn"]
+[ext_resource type="Texture2D" uid="uid://dqjmw6tnomt8n" path="res://Frameworks(YourStuff)/Scary_Music_Jam/TileMap/Background.png" id="2_ps1la"]
+[ext_resource type="PackedScene" uid="uid://lgpt0pbkhoth" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Player/Player_Light.tscn" id="3_amygn"]
+[ext_resource type="Texture2D" uid="uid://dq26sxjvp5rf4" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Assets/ui_assets.PNG" id="5_6aewd"]
+[ext_resource type="Script" uid="uid://bqucx228pyn75" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Main/ui.gd" id="5_u2i7p"]
+[ext_resource type="Texture2D" uid="uid://c7qohcrdktsuy" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Assets/Jumpscare.PNG" id="7_hh5pf"]
+[ext_resource type="AudioStream" uid="uid://cifcvvobg6f0a" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Music/Sound Stuff/Calm Music/bass calm stem.wav" id="8_irg17"]
+[ext_resource type="AudioStream" uid="uid://cywteeu1t5lbp" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Music/Sound Stuff/Sound Effects/monster jumpscare.wav" id="8_qg80j"]
+[ext_resource type="AudioStream" uid="uid://b7pge5pbdlaj1" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Music/Sound Stuff/Calm Music/drums calm stem.wav" id="9_tw01r"]
+[ext_resource type="AudioStream" uid="uid://xarf5kw5yfib" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Music/Sound Stuff/Sound Effects/flashlight.wav" id="9_wltqy"]
+[ext_resource type="AudioStream" uid="uid://cxnl0l7gfxiyp" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Music/Sound Stuff/Sound Effects/winning sound.wav" id="10_kf8jr"]
+[ext_resource type="FontFile" uid="uid://brsyhxmt62xg1" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Assets/Font/Shadow of the Deads Over.ttf" id="11_kf8jr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ps1la"]
+texture = ExtResource("2_amygn")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6vsa0"]
+tile_shape = 1
+tile_size = Vector2i(64, 32)
+sources/4 = SubResource("TileSetAtlasSource_ps1la")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amygn"]
+size = Vector2(93.71527, 520.555)
+
+[sub_resource type="Environment" id="Environment_ps1la"]
+background_mode = 3
+ambient_light_source = 2
+glow_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_wltqy"]
+font = ExtResource("11_kf8jr")
+font_size = 70
+
+[node name="Main" type="Node2D" unique_id=1943682379]
+script = ExtResource("1_s6y30")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2146338451]
+offset_right = 1236.0
+offset_bottom = 708.0
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=352282362]
+position = Vector2(581, 349.50003)
+scale = Vector2(0.18333334, 0.16319446)
+texture = ExtResource("2_ps1la")
+
+[node name="Control" type="Control" parent="." unique_id=1837105866]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 196.94562
+offset_top = 208.12497
+offset_right = 917.9456
+offset_bottom = 576.125
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Control" unique_id=1882237185]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAACAAUABAABAAAAAAADAAQABAAAAAAAAAADAAMABAABAAAAAAAEAAIABAAAAAAAAAAEAAEABAABAAAAAAAFAAAABAAAAAAAAAACAAYABAAAAAAAAAABAAcABAABAAAAAAABAAgABAAAAAAAAAAAAAkABAABAAAAAAAAAAoABAAAAAAAAAAAAAsABAABAAAAAAABAAwABAAAAAAAAAABAA0ABAABAAAAAAACAA4ABAAAAAAAAAACAA8ABAABAAAAAAADABAABAAAAAAAAAADABEABAABAAAAAAAEABIABAAAAAAAAAAEABMABAABAAAAAAAFABQABAAAAAAAAAAFABMABAABAAAAAAAGABIABAAAAAAAAAAGABEABAABAAAAAAAHABAABAAAAAAAAAAHAA8ABAABAAAAAAAIAA4ABAAAAAAAAAAIAA0ABAABAAAAAAAJAAwABAAAAAAAAAAJAAsABAABAAAAAAAKAAoABAAAAAAAAAAGAAIABAAAAAAAAAAGAAMABAABAAAAAAAHAAQABAAAAAAAAAAHAAUABAABAAAAAAAIAAYABAAAAAAAAAAIAAcABAABAAAAAAAJAAgABAAAAAAAAAAJAAkABAABAAAAAAAFAAIABAAAAAAAAAAFAAMABAABAAAAAAAFAAQABAAAAAAAAAAFAAYABAAAAAAAAAAFAAcABAABAAAAAAAFAAgABAAAAAAAAAAFAAkABAABAAAAAAAFAAoABAAAAAAAAAAFAAsABAABAAAAAAAFAAwABAAAAAAAAAAFAA0ABAABAAAAAAAFAA4ABAAAAAAAAAAFAA8ABAABAAAAAAAFABAABAAAAAAAAAAFABEABAABAAAAAAAFABIABAAAAAAAAAABAAoABAAAAAAAAAACAAoABAAAAAAAAAADAAoABAAAAAAAAAADAAkABAABAAAAAAAEAAkABAABAAAAAAAEAAoABAAAAAAAAAAGAAoABAAAAAAAAAAHAAoABAAAAAAAAAAIAAoABAAAAAAAAAADAAsABAABAAAAAAADAAwABAAAAAAAAAADAA0ABAABAAAAAAADAA4ABAAAAAAAAAADAA8ABAABAAAAAAAEAAsABAABAAAAAAAEAAwABAAAAAAAAAAEAA0ABAABAAAAAAAEAA4ABAAAAAAAAAAEAA8ABAABAAAAAAAEABAABAAAAAAAAAAGAAsABAABAAAAAAAGAAwABAAAAAAAAAAGAA0ABAABAAAAAAAGAA4ABAAAAAAAAAAGAA8ABAABAAAAAAAGABAABAAAAAAAAAAEABEABAABAAAAAAACAAsABAABAAAAAAACAAwABAAAAAAAAAACAA0ABAABAAAAAAABAAsABAABAAAAAAABAAkABAABAAAAAAACAAcABAABAAAAAAACAAgABAAAAAAAAAACAAkABAABAAAAAAADAAYABAAAAAAAAAADAAcABAABAAAAAAADAAgABAAAAAAAAAAEAAYABAAAAAAAAAAEAAcABAABAAAAAAAEAAgABAAAAAAAAAAGAAYABAAAAAAAAAAGAAcABAABAAAAAAAGAAgABAAAAAAAAAAGAAkABAABAAAAAAAEAAMABAABAAAAAAAEAAQABAAAAAAAAAAEAAUABAABAAAAAAADAAUABAABAAAAAAAGAAQABAAAAAAAAAAGAAUABAABAAAAAAAHAAYABAAAAAAAAAAHAAcABAABAAAAAAAHAAgABAAAAAAAAAAHAAkABAABAAAAAAAHAAsABAABAAAAAAAHAAwABAAAAAAAAAAHAA0ABAABAAAAAAAIAAgABAAAAAAAAAAIAAkABAABAAAAAAAJAAoABAAAAAAAAAAIAAsABAABAAAAAAAIAAwABAAAAAAAAAAHAA4ABAAAAAAAAAAFAAUABAABAAAAAAAFAAEABAABAAAAAAA=")
+tile_set = SubResource("TileSet_6vsa0")
+
+[node name="player_light" parent="." unique_id=253242297 node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("3_amygn")]
+position = Vector2(548.94556, 383.12497)
+tile_map_layer = NodePath("../Control/TileMapLayer2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1221402301]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=616322474]
+position = Vector2(350.64185, 253.62949)
+rotation = 1.1082841
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_amygn")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=285670918]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1445488101]
+position = Vector2(748.364, 253.29388)
+rotation = 2.0333085
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_amygn")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1400154266]
+position = Vector2(-399, 279)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3" unique_id=78231760]
+position = Vector2(728.94556, 226.12497)
+rotation = 2.0333085
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_amygn")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=615239797]
+position = Vector2(383.94562, 357.12497)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1558125609]
+position = Vector2(366, 157.00008)
+rotation = 1.1082841
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_amygn")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1029481130]
+environment = SubResource("Environment_ps1la")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1734237958]
+color = Color(0.7121294, 0.7121294, 0.71212935, 1)
+
+[node name="LoseTimer" type="Timer" parent="." unique_id=1673318515]
+wait_time = 10.0
+
+[node name="UI" type="Node2D" parent="." unique_id=529641015]
+script = ExtResource("5_u2i7p")
+
+[node name="KeyInstructions" type="Sprite2D" parent="UI" unique_id=1801235136]
+position = Vector2(571, 531)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_6aewd")
+region_enabled = true
+region_rect = Rect2(1492.5781, 2598.9531, 2790.7031, 1082.1094)
+
+[node name="UITimer" type="Timer" parent="UI" unique_id=1223759006]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="MainInstruction" type="Sprite2D" parent="UI" unique_id=565078405]
+position = Vector2(583, 162)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_6aewd")
+region_enabled = true
+region_rect = Rect2(0, 0, 5400, 1413.9141)
+
+[node name="SkullFace" type="Sprite2D" parent="UI" unique_id=1957773460]
+light_mask = 0
+position = Vector2(608, 329)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_6aewd")
+region_enabled = true
+region_rect = Rect2(2107.6868, 1516.4297, 1412.4375, 979.59375)
+
+[node name="JumpscareTimer" type="Timer" parent="." unique_id=1272659636]
+
+[node name="WinningTimer" type="Timer" parent="." unique_id=1111574522]
+wait_time = 1.9
+
+[node name="Jumpscare" type="Sprite2D" parent="." unique_id=1891029286]
+visible = false
+top_level = true
+position = Vector2(584, 272)
+scale = Vector2(0.18375002, 0.18375002)
+texture = ExtResource("7_hh5pf")
+
+[node name="BassMusic" type="AudioStreamPlayer" parent="." unique_id=1303640974]
+stream = ExtResource("8_irg17")
+
+[node name="DrumMusic" type="AudioStreamPlayer" parent="." unique_id=1863583595]
+stream = ExtResource("9_tw01r")
+
+[node name="JumpScareMusic" type="AudioStreamPlayer" parent="." unique_id=434184068]
+stream = ExtResource("8_qg80j")
+volume_db = 20.0
+
+[node name="FlashLight" type="AudioStreamPlayer" parent="." unique_id=1395478302]
+stream = ExtResource("9_wltqy")
+volume_db = 10.0
+
+[node name="WinningMusic" type="AudioStreamPlayer" parent="." unique_id=1002725045]
+stream = ExtResource("10_kf8jr")
+
+[node name="TimeLabel" type="Label" parent="." unique_id=991646833]
+visible = false
+modulate = Color(5.912981, 5.912981, 5.912981, 1)
+offset_left = 886.0
+offset_top = 494.0
+offset_right = 1044.0
+offset_bottom = 639.0
+text = "20"
+label_settings = SubResource("LabelSettings_wltqy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="LoseTimer" to="." method="_on_lose_timer_timeout"]
+[connection signal="timeout" from="UI/UITimer" to="UI" method="_on_ui_timer_timeout"]
+[connection signal="timeout" from="JumpscareTimer" to="." method="_on_jumpscare_timer_timeout"]
+[connection signal="timeout" from="WinningTimer" to="." method="_on_winning_timer_timeout"]

@@ -1,0 +1,381 @@
+[gd_scene format=3 uid="uid://c0ya2pqnfbx1l"]
+
+[ext_resource type="Script" uid="uid://t886as704gvv" path="res://Misc/HallOfGames/hall_of_games.gd" id="1_hnllp"]
+[ext_resource type="Texture2D" uid="uid://c8okkqic57sjw" path="res://Misc/BaseGameAssets/GameThumbnails/baseplate.png" id="2_dm7o2"]
+[ext_resource type="PackedScene" uid="uid://c14bvnum1utwo" path="res://Misc/HallOfGames/door.tscn" id="3_kfup3"]
+[ext_resource type="Texture2D" uid="uid://b2y486ghkxb8e" path="res://Misc/HallOfGames/Assets/bigdoor.png" id="4_a3agb"]
+[ext_resource type="PackedScene" uid="uid://hfmyppw6hg22" path="res://Misc/HallOfGames/gamer_tag.tscn" id="5_dxurm"]
+[ext_resource type="Texture2D" uid="uid://ch6pcfyhb3ybe" path="res://Misc/HallOfGames/Assets/flatjude.png" id="5_ruw4v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnllp"]
+size = Vector2(4538, 120.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm7o2"]
+size = Vector2(76, 633.5)
+
+[sub_resource type="Gradient" id="Gradient_t2eey"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3agb"]
+gradient = SubResource("Gradient_t2eey")
+
+[node name="HallOfGames" type="Node2D" unique_id=546685051]
+script = ExtResource("1_hnllp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=443401365]
+
+[node name="Horizontal" type="CollisionShape2D" parent="StaticBody2D" unique_id=41083241]
+position = Vector2(2259, 665)
+shape = SubResource("RectangleShape2D_hnllp")
+
+[node name="Horizontal2" type="CollisionShape2D" parent="StaticBody2D" unique_id=377731786]
+position = Vector2(2259, 52.75)
+shape = SubResource("RectangleShape2D_hnllp")
+
+[node name="Vertical" type="CollisionShape2D" parent="StaticBody2D" unique_id=1673876029]
+position = Vector2(28, 309.25)
+shape = SubResource("RectangleShape2D_dm7o2")
+
+[node name="Vertical2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1241070913]
+position = Vector2(4493, 309.25)
+shape = SubResource("RectangleShape2D_dm7o2")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D" unique_id=926377402]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-4, 8, 2, 115, 4521, 118, 4513, -29)
+
+[node name="Polygon2D2" type="Polygon2D" parent="StaticBody2D" unique_id=261656241]
+position = Vector2(0, 602)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-4, 8, 2, 115, 4521, 118, 4513, -29)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1393284911]
+z_index = -12
+position = Vector2(2228.5, 624.0001)
+scale = Vector2(110.796875, 48.468754)
+texture = SubResource("GradientTexture2D_a3agb")
+metadata/_edit_lock_ = true
+
+[node name="Games" type="Node2D" parent="." unique_id=180265784]
+
+[node name="BasePlate" type="Node2D" parent="Games" unique_id=168510126]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/BasePlate" unique_id=1098618413]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/BasePlate" unique_id=1371238688]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/BasePlate/Polygon2D" unique_id=1286863115]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/BasePlate" unique_id=220619079 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/BasePlate" unique_id=1690713788 instance=ExtResource("5_dxurm")]
+
+[node name="Vandalism" type="Node2D" parent="Games" unique_id=1912890229]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/Vandalism" unique_id=1638898562]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/Vandalism" unique_id=1562956972]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/Vandalism/Polygon2D" unique_id=880947356]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/Vandalism" unique_id=1470802112 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/Vandalism" unique_id=77871204 instance=ExtResource("5_dxurm")]
+
+[node name="TrickTape" type="Node2D" parent="Games" unique_id=1895500436]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/TrickTape" unique_id=648580599]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/TrickTape" unique_id=364541352]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/TrickTape/Polygon2D" unique_id=455942955]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/TrickTape" unique_id=2123463526 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/TrickTape" unique_id=474557969 instance=ExtResource("5_dxurm")]
+
+[node name="Trolley" type="Node2D" parent="Games" unique_id=1064873953]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/Trolley" unique_id=957193714]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/Trolley" unique_id=1777691331]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/Trolley/Polygon2D" unique_id=1106766158]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/Trolley" unique_id=959568395 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/Trolley" unique_id=1285655425 instance=ExtResource("5_dxurm")]
+
+[node name="RockSkip" type="Node2D" parent="Games" unique_id=1135337622]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/RockSkip" unique_id=1029521160]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/RockSkip" unique_id=986541417]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/RockSkip/Polygon2D" unique_id=65956933]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/RockSkip" unique_id=843435442 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/RockSkip" unique_id=1161305823 instance=ExtResource("5_dxurm")]
+
+[node name="Tyson" type="Node2D" parent="Games" unique_id=1511639183]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/Tyson" unique_id=887119325]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/Tyson" unique_id=1878641114]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/Tyson/Polygon2D" unique_id=169263230]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/Tyson" unique_id=56273488 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/Tyson" unique_id=43793948 instance=ExtResource("5_dxurm")]
+
+[node name="Tyson2" type="Node2D" parent="Games" unique_id=1440982448]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/Tyson2" unique_id=1535856852]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/Tyson2" unique_id=595567364]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/Tyson2/Polygon2D" unique_id=471092690]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/Tyson2" unique_id=1683781353 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/Tyson2" unique_id=1998672766 instance=ExtResource("5_dxurm")]
+
+[node name="Repair" type="Node2D" parent="Games" unique_id=879163841]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/Repair" unique_id=2051811539]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/Repair" unique_id=138486949]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/Repair/Polygon2D" unique_id=473557951]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/Repair" unique_id=1527201193 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/Repair" unique_id=140615221 instance=ExtResource("5_dxurm")]
+
+[node name="Swat" type="Node2D" parent="Games" unique_id=1312688061]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/Swat" unique_id=1474607193]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/Swat" unique_id=1634430772]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/Swat/Polygon2D" unique_id=1083631444]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/Swat" unique_id=1462176198 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/Swat" unique_id=1300647936 instance=ExtResource("5_dxurm")]
+
+[node name="MixPaint" type="Node2D" parent="Games" unique_id=1755276252]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/MixPaint" unique_id=20950069]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/MixPaint" unique_id=314735084]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/MixPaint/Polygon2D" unique_id=1033583886]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/MixPaint" unique_id=775872831 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/MixPaint" unique_id=1620785667 instance=ExtResource("5_dxurm")]
+
+[node name="Pong" type="Node2D" parent="Games" unique_id=243827607]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/Pong" unique_id=1250056966]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/Pong" unique_id=2126539869]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/Pong/Polygon2D" unique_id=2080568177]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/Pong" unique_id=1264765428 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/Pong" unique_id=977589008 instance=ExtResource("5_dxurm")]
+
+[node name="PlanetGame" type="Node2D" parent="Games" unique_id=396362947]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/PlanetGame" unique_id=1171781366]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/PlanetGame" unique_id=187789577]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/PlanetGame/Polygon2D" unique_id=1565623641]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/PlanetGame" unique_id=2026782054 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/PlanetGame" unique_id=1642407058 instance=ExtResource("5_dxurm")]
+
+[node name="Mall" type="Node2D" parent="Games" unique_id=1894025705]
+position = Vector2(1212, 193)
+
+[node name="Flatjude" type="Sprite2D" parent="Games/Mall" unique_id=2006494451]
+position = Vector2(333, 402)
+scale = Vector2(1.2243928, 1.2243928)
+texture = ExtResource("5_ruw4v")
+offset = Vector2(4.083618, -63.705048)
+
+[node name="Polygon2D" type="Polygon2D" parent="Games/Mall" unique_id=2047931449]
+z_index = -1
+position = Vector2(194, 79)
+scale = Vector2(0.36096415, 0.36096415)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-653.80444, -296.42834, -551.3013, -362.91696, -144.0586, -351.8355, 290.88745, -357.37622, 581.77515, -360.1466, 623.3308, -271.49512, 615.0198, -135.74756, 601.1677, 265.9544, 598.3972, 360.1466, 440.48706, 379.53906, 102.503174, 362.91687, -113.58472, 376.76868, -343.5244, 376.76868, -573.4641, 379.53906, -634.4121, 274.2655, -642.72314, 96.962524, -648.2639, -180.0733)
+
+[node name="Baseplate" type="Sprite2D" parent="Games/Mall/Polygon2D" unique_id=1773962317]
+texture = ExtResource("2_dm7o2")
+
+[node name="Door2" parent="Games/Mall" unique_id=823152930 instance=ExtResource("3_kfup3")]
+position = Vector2(194, 323)
+
+[node name="GamerTag" parent="Games/Mall" unique_id=1920631819 instance=ExtResource("5_dxurm")]
+
+[node name="chuck them in" type="Label" parent="." unique_id=112100210]
+offset_left = 1456.6443
+offset_top = -134.8017
+offset_right = 1496.6443
+offset_bottom = -111.8017
+
+[node name="Bigdoor" type="Sprite2D" parent="." unique_id=157852530]
+position = Vector2(450, 407)
+texture = ExtResource("4_a3agb")

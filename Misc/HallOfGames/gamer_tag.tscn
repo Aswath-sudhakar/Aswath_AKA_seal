@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://hfmyppw6hg22"]
+
+[node name="GamerTag" type="RichTextLabel" unique_id=1690713788]
+modulate = Color(0, 0, 0, 1)
+offset_left = 282.0
+offset_top = 222.0
+offset_right = 403.0
+offset_bottom = 248.0
+pivot_offset = Vector2(56, 4)
+text = "Alex the Slave"

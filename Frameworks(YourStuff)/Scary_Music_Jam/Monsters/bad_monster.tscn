@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://w48sdc3lygmy"]
+
+[ext_resource type="Script" uid="uid://b7gw5ukn5uokf" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Monsters/bad_monster.gd" id="1_mj50y"]
+[ext_resource type="Texture2D" uid="uid://cpija0jujpixd" path="res://Frameworks(YourStuff)/Scary_Music_Jam/Assets/Bad_Skeleton.PNG" id="2_vbdxc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjlgb"]
+
+[node name="BadMonster" type="Node2D" unique_id=1581117112]
+visible = false
+script = ExtResource("1_mj50y")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1786352682]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=256816595]
+shape = SubResource("RectangleShape2D_fjlgb")
+debug_color = Color(0.9929151, 0, 0.25183216, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=758553376]
+position = Vector2(0.99999994, -31.999998)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_vbdxc")
+region_rect = Rect2(4301.2344, 1459.8906, 1098.7656, 2860.1094)
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1607015391]
+color = Color(1, 0.6039216, 0.30980393, 1)
+texture = ExtResource("2_vbdxc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
