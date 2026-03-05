@@ -27,6 +27,12 @@ light_size = 0.323
 
 [node name="TapeDispenserPositioner" parent="." unique_id=1603529063 instance=ExtResource("6_ib3t1")]
 
+[node name="Down" parent="TapeDispenserPositioner/VisualsContainer" parent_id_path=PackedInt32Array(1603529063, 178606531) index="3" unique_id=1338742183]
+visible = false
+
+[node name="tape" parent="TapeDispenserPositioner/VisualsContainer/Down" index="0" unique_id=1959950636]
+visible = false
+
 [node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=248730204]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024255037, 1.798465)
 light_energy = 2.114
