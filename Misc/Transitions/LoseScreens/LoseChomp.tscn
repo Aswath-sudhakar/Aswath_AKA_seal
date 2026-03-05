@@ -612,4 +612,27 @@ rotation = -0.26877758
 scale = Vector2(4.122928, 4.122928)
 text = "Score: "
 
+[node name="IntensityBar" type="Panel" parent="." unique_id=1184195293]
+z_index = 999
+offset_left = 1187.0
+offset_top = 252.0
+offset_right = 2373.0
+offset_bottom = 397.0
+
+[node name="Panel2" type="Panel" parent="IntensityBar" unique_id=1276419972]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 14.0
+offset_right = 1164.0
+offset_bottom = 127.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="IntensityBar/Panel2" unique_id=55304021]
+layout_mode = 0
+offset_left = 271.99997
+offset_right = 529.0
+offset_bottom = 47.0
+scale = Vector2(4.6762915, 4.6762915)
+bbcode_enabled = true
+text = "[shake]INTENSITY UP!"
+
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

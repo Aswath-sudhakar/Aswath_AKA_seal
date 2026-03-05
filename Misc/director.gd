@@ -4,7 +4,10 @@ extends Node
 var fullscreen := false 
 var textures = []
 var debug_mode = true
+var highscore = 0
+
 func _process(_delta):
+	
 	
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()

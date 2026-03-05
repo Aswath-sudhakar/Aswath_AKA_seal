@@ -6,11 +6,14 @@ extends Transition
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var lives_text: RichTextLabel = $Lives
 @onready var score_text: RichTextLabel = $Score
+@onready var intensity_bar: Panel = $IntensityBar
 
-func _start_transition(score, lives):
+var intensity_up = false
+
+func _start_transition(score, lives, intens : bool):
 	if not is_inside_tree():
 		await tree_entered
-		
+	self.intensity_up = intens
 	score_text.text = "Score: " + str(score)
 	lives_text.text = "Lives: " + str(lives)
 	#new_scene_to_move.global_position = start_point.global_position
@@ -25,13 +28,19 @@ func _start_transition(score, lives):
 	safe_remove(old_scene_to_move)
 	transition_finished.emit()
 
-
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if animated_sprite_2d.frame == 28:
 		lives_text.show()
 		score_text.show()
 		old_scene_to_move.global_position = end_point.global_position
 		new_scene_to_move.global_position = play_point.global_position
+	if animated_sprite_2d.frame == 30 and intensity_up:
+		var tween = get_tree().create_tween()
+		tween.tween_property(intensity_bar, 'global_position', Vector2(-14.0,252), 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+		tween.tween_property(intensity_bar, 'global_position', Vector2(-1210.0,252), 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+		animated_sprite_2d.pause()
+		await get_tree().create_timer(2.0).timeout
+		animated_sprite_2d.play("default")
 	
 	if animated_sprite_2d.frame == 65:
 		lives_text.hide()

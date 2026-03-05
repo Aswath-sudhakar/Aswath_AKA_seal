@@ -28,6 +28,7 @@ func _start_game():
 	
 	for i in clamp(roundi(get_intensity() + 1),0,all_players.size()): #the more intense it is the more people get selected
 		var chosen_one = all_players.pick_random()
+		all_players.erase(chosen_one)
 		needed_players += [chosen_one]#this function is automatically called when the scene transitions in
 		chosen_one.show_circ()
 		print(chosen_one)
@@ -61,7 +62,7 @@ func _on_game_timer_timeout() -> void:
 	await get_tree().create_timer(2.0).timeout
 	lighton.play(2.1)
 	background_darkness.hide()
-	if needed_players == current_players:
+	if check_match():
 		win_animation.show()
 		win_animation.play("default")
 	else:
@@ -69,6 +70,12 @@ func _on_game_timer_timeout() -> void:
 		lose_animation.get_child(0).show()
 	$Bar.show()
 
+func check_match():
+	for i in current_players:
+		if current_players.count(i) != needed_players.count(i):
+			return false
+	return true
+	
 func _on__finished() -> void:
 	end_game.emit((needed_players == current_players))
 	print('done')

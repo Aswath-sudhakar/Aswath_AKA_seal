@@ -20,7 +20,7 @@ func create_casing(game : Game) -> SubViewportContainer:
 	return sub_view_port_container
 
 @abstract
-func _start_transition(score : int, lives : int) #this function is automatically called when the scene transitions in
+func _start_transition(score : int, lives : int, intensity_up : bool) #this function is automatically called when the scene transitions in
 
 func set_old_scene_to_move(game : Game): #take the current game and GIT it out of here
 	old_scene_to_move = await create_casing(game)
