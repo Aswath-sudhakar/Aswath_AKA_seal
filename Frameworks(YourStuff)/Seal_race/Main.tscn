@@ -21,9 +21,12 @@
 [ext_resource type="Texture2D" uid="uid://becb1865faeb0" path="res://Frameworks(YourStuff)/Seal_race/Assets/Trees/Pine Tree - COLD  - High Snow0000.png" id="12_5vvyt"]
 [ext_resource type="Texture2D" uid="uid://cjcsbuwvroi24" path="res://Frameworks(YourStuff)/Seal_race/Assets/Sprite-0003.png" id="13_devvj"]
 [ext_resource type="PackedScene" uid="uid://cnxouep17r1xd" path="res://Frameworks(YourStuff)/Seal_race/instructions.tscn" id="21_devvj"]
+[ext_resource type="AudioStream" uid="uid://c602n257o6sga" path="res://Frameworks(YourStuff)/Seal_race/Assets/SFX/dragon-studio-rainstorm-with-wind-351117.mp3" id="22_wi50f"]
+[ext_resource type="AudioStream" uid="uid://coxq6amgxavwn" path="res://Frameworks(YourStuff)/Seal_race/Assets/SFX/freesound_community-pixel-sound-effect-4-82881.mp3" id="23_hkqec"]
+[ext_resource type="AudioStream" uid="uid://13qoy2d68yh1" path="res://Frameworks(YourStuff)/Seal_race/Assets/SFX/u_edtmwfwu7c-metal-pipe-329305.mp3" id="24_ua05g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glv2v"]
-size = Vector2(94, 74)
+size = Vector2(98, 63)
 
 [sub_resource type="GDScript" id="GDScript_uu6xs"]
 
@@ -40,7 +43,7 @@ fill_to = Vector2(0.7795527, 0.66773164)
 size = Vector2(2463, 236)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_glv2v"]
-radius = 20.0
+radius = 2.0
 height = 578.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w3rk5"]
@@ -48,7 +51,7 @@ shader = ExtResource("11_c2ibq")
 shader_parameter/WindStrength_ = 10.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
-size = Vector2(96, 72)
+size = Vector2(97, 72)
 
 [sub_resource type="Gradient" id="Gradient_5tuhn"]
 colors = PackedColorArray(0.84492445, 0.00014542707, 7.941574e-05, 1, 0, 0, 0, 1)
@@ -268,7 +271,7 @@ position = Vector2(-4, -251)
 script = ExtResource("1_2gh4u")
 
 [node name="Ribbon_Seal" type="RigidBody2D" parent="." unique_id=1386532396]
-position = Vector2(164, 489)
+position = Vector2(95, 489)
 script = ExtResource("1_glv2v")
 
 [node name="RayCast2D" type="RayCast2D" parent="Ribbon_Seal" unique_id=756546574]
@@ -276,7 +279,7 @@ position = Vector2(-30, 295)
 target_position = Vector2(0, 39)
 
 [node name="RibbonSeal" type="CollisionShape2D" parent="Ribbon_Seal" unique_id=1568439264]
-position = Vector2(-35, 296)
+position = Vector2(-35, 301.5)
 shape = SubResource("RectangleShape2D_glv2v")
 
 [node name="Seal_Sprite" type="Sprite2D" parent="Ribbon_Seal" unique_id=1299368991]
@@ -314,25 +317,25 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="Watah" type="CollisionShape2D" parent="Ocean" unique_id=1892697819]
-position = Vector2(1141, 296)
+position = Vector2(1147, 296)
 shape = SubResource("CapsuleShape2D_glv2v")
 debug_color = Color(0.99999994, 0.0103484, 0.060341723, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ocean" unique_id=913266111]
 z_index = 1
 material = SubResource("ShaderMaterial_w3rk5")
-position = Vector2(1149, 203)
-scale = Vector2(1.84, 1.8066666)
+position = Vector2(1147, 203)
+scale = Vector2(1.8799996, 1.8066666)
 texture = ExtResource("3_lgr22")
 
 [node name="Evil_seal" type="RigidBody2D" parent="." unique_id=1041385098]
-position = Vector2(-35, 417)
+position = Vector2(-27, 416)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_r0du0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Evil_seal" unique_id=594031675]
-position = Vector2(86, 368)
+position = Vector2(86.5, 368)
 shape = SubResource("RectangleShape2D_cm0pq")
 
 [node name="RayCast2D" type="RayCast2D" parent="Evil_seal" unique_id=184151318]
@@ -694,10 +697,30 @@ scale = Vector2(2.796875, 2.290476)
 texture = ExtResource("9_20pc6")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=531763857]
-position = Vector2(859, 378)
+position = Vector2(853, 380)
 energy = 2.3
 blend_mode = 2
 texture = SubResource("GradientTexture2D_j4qnp")
 texture_scale = 46.88
 
 [node name="StartOverlay" parent="." unique_id=969991500 instance=ExtResource("21_devvj")]
+
+[node name="Wind_SFX" type="AudioStreamPlayer2D" parent="." unique_id=185662384]
+process_mode = 3
+stream = ExtResource("22_wi50f")
+volume_db = -9.69
+
+[node name="Glumph" type="AudioStreamPlayer2D" parent="." unique_id=1143069882]
+stream = ExtResource("23_hkqec")
+volume_db = -6.459
+pitch_scale = 0.75
+
+[node name="Evil_Glumph" type="AudioStreamPlayer2D" parent="." unique_id=1133329765]
+stream = ExtResource("23_hkqec")
+volume_db = -6.4
+pitch_scale = 0.5
+
+[node name="Meow" type="AudioStreamPlayer2D" parent="." unique_id=1479636963]
+process_mode = 3
+stream = ExtResource("24_ua05g")
+volume_db = -2.584

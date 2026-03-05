@@ -9,8 +9,11 @@ var was_on_ground := false
 @onready var ocean: Area2D = $"../Ocean"
 @onready var evil_seal: Sprite2D = $Evil_Seal
 @onready var Evil_seal: RigidBody2D = $"."
-var has_lost := false
+@onready var game = get_parent()
+@onready var evil_glumph: AudioStreamPlayer2D = $"../Evil_Glumph"
+@onready var meow: AudioStreamPlayer2D = $"../Meow"
 
+var has_lost := false
 signal lose 
 
 func _ready():
@@ -40,9 +43,10 @@ func land_stretch(delta):
 func glumph():
 	
 	if ray_cast_2d.is_colliding():
-		apply_central_impulse(Vector2(50,-100))
+		apply_central_impulse(Vector2(25 * game.get_intensity(),-50 * game.get_intensity()))
 		var tween = create_tween()
 		tween.tween_property(evil_seal, "scale", Vector2(.8, 1.4), .05)
+		evil_glumph.play()
 		
 	
 	
@@ -51,4 +55,6 @@ func _on_area_entered(body):
 	if body == self and not has_lost:
 		has_lost = true
 		emit_signal("lose")
+		game.emit_signal("end_game", has_lost)
+		meow.play()
 	

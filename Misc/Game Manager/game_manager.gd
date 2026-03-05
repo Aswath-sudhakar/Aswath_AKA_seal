@@ -22,8 +22,9 @@ const FINISH_HIM = preload("res://Frameworks(YourStuff)/Kevin/FinishHim/scenes/g
 const MIX_PAINT_JUDE_ = preload("res://Frameworks(YourStuff)/Jude/MixColors/MixPaint(Jude).tscn")
 const EXAMPLE_SCENE_MUSIC = preload("res://ProoblesToys(PolishTools)/Music/ExampleSceneMusic.tscn")
 const PONG = preload("res://Frameworks(YourStuff)/Pong;)/scenes/main.tscn")
+const SEAL_RACE = preload("res://Frameworks(YourStuff)/Seal_race/Main.tscn")
 
-var all_games : Array[PackedScene] = [TRICK_TAPE, BASEPLATE, PONG]
+var all_games : Array[PackedScene] = [TRICK_TAPE, BASEPLATE, PONG, SEAL_RACE]
 
 ## List of games left to play this stage before time scale increases
 var games_to_play_this_stage : Array[PackedScene]

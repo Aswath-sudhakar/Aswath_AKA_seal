@@ -38,8 +38,7 @@ func start_countdown():
 	instructions.visible = false 
 	countdown_label.visible = true
 	
-	for i in range(3,0,-1):
-		await animate_countdown(str(i))
+	
 		
 	await animate_countdown("GO!")
 		
@@ -53,7 +52,8 @@ func start_countdown():
 func animate_countdown(text):
 	countdown_label.text = text
 	
-	var center_y = get_viewport().size.y / 2 
+	
+	var center_y = (get_viewport().size.y / 2 - countdown_label.size.y) / 2
 	var start_y : int = 200
 	var exit_y = get_viewport().size.y + 200
 	
@@ -80,6 +80,7 @@ func animate_countdown(text):
 	await tween.finished
 	
 func Instructions_slidein():
+	await get_tree().process_frame
 	
 	var tween = create_tween()
 	var center_y = (get_viewport().size.y - instructions.size.y) / 2 

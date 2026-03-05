@@ -140,7 +140,7 @@ texture = ExtResource("6_vb0mi")
 [node name="Label" type="Label" parent="Instructions" unique_id=2146906305]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.29982516
+anchor_left = -0.3208042
 anchor_top = 0.05608984
 anchor_right = -0.3208042
 anchor_bottom = 0.085793026
@@ -167,6 +167,7 @@ grow_vertical = 2
 scale = Vector2(1.01, 1.01)
 
 [node name="CountdownLabel" type="Label" parent="." unique_id=1966618000]
+layout_direction = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
