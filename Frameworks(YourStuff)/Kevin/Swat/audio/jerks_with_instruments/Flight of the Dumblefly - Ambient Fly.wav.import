@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwo1571hpaijm"
+path="res://.godot/imported/Flight of the Dumblefly - Ambient Fly.wav-40011cd4cc12dc0721c92a4841b7c328.sample"
+
+[deps]
+
+source_file="res://Frameworks(YourStuff)/Kevin/Swat/audio/jerks_with_instruments/Flight of the Dumblefly - Ambient Fly.wav"
+dest_files=["res://.godot/imported/Flight of the Dumblefly - Ambient Fly.wav-40011cd4cc12dc0721c92a4841b7c328.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

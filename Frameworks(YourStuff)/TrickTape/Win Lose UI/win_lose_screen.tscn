@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://httejcqk3k6r" path="res://Frameworks(YourStuff)/TrickTape/Win Lose UI/Assets/win.png" id="1_d347c"]
 [ext_resource type="Script" uid="uid://cf2fdwwca2xlb" path="res://Frameworks(YourStuff)/TrickTape/Win Lose UI/win_lose_screen.gd" id="1_te5r4"]
-[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Frameworks(YourStuff)/TrickTape/Effect Components/old_node2D_effect.gd" id="3_aabum"]
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Frameworks(YourStuff)/EldritchGame/Effect Components/Scripts/Effects/node2D_effect.gd" id="3_aabum"]
 [ext_resource type="Texture2D" uid="uid://il68s75rgxnp" path="res://Frameworks(YourStuff)/TrickTape/Win Lose UI/Assets/cloud.png" id="4_5sqgv"]
 [ext_resource type="Texture2D" uid="uid://bqtwca7juvwei" path="res://Frameworks(YourStuff)/TrickTape/Win Lose UI/Assets/whimsy.png" id="5_te5r4"]
 [ext_resource type="Texture2D" uid="uid://bg6umg32rybuk" path="res://Frameworks(YourStuff)/TrickTape/Win Lose UI/Assets/lose.png" id="6_5sqgv"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://b8j431dfbwqo8" path="res://Frameworks(YourStuff)/TrickTape/Win Lose UI/Assets/slash_1.png" id="8_h2vue"]
 [ext_resource type="Texture2D" uid="uid://ciyc5x8k7488x" path="res://Frameworks(YourStuff)/TrickTape/Win Lose UI/Assets/slash_2.png" id="9_4bgr5"]
 [ext_resource type="Texture2D" uid="uid://tkwb15dew2l8" path="res://Frameworks(YourStuff)/TrickTape/Win Lose UI/Assets/slash_3.png" id="10_2l805"]
-
 
 [node name="Win_Lose Screen" type="Control" unique_id=1294610884]
 layout_mode = 3
@@ -23,124 +22,150 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_te5r4")
 
-[node name="WinSprite" type="Sprite2D" parent="." unique_id=1954329577]
+[node name="Win" type="Node" parent="." unique_id=741404295]
+
+[node name="WinSprite" type="Sprite2D" parent="Win" unique_id=1954329577]
 visible = false
 z_index = 2
+position = Vector2(576, 324)
 scale = Vector2(5, 5)
 texture = ExtResource("1_d347c")
 
-[node name="StampEffect" type="Node" parent="WinSprite" unique_id=1013310819 node_paths=PackedStringArray("affected_node")]
+[node name="StampEffect" type="Node" parent="Win/WinSprite" unique_id=1013310819 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_aabum")
 affected_node = NodePath("..")
-rotation_amount = 0.0
-scale_amount = Vector2(5, 5)
+start_scale = Vector2(10, 10)
+start_modulate = Color(1, 1, 1, 0)
 trans_type = 9
 ease_type = 1
 tween_duration = 0.6
 metadata/_custom_type_script = "uid://cv1tqomq6d35i"
 
-[node name="WinBackground" type="Sprite2D" parent="." unique_id=545296662]
+[node name="WinBackground" type="Sprite2D" parent="Win" unique_id=545296662]
 visible = false
 z_index = 1
 texture_filter = 1
+position = Vector2(576, 324)
 scale = Vector2(5, 5)
 texture = ExtResource("4_5sqgv")
 
-[node name="StampEffect" type="Node" parent="WinBackground" unique_id=1052679362 node_paths=PackedStringArray("affected_node")]
+[node name="StampEffect" type="Node" parent="Win/WinBackground" unique_id=1052679362 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_aabum")
 affected_node = NodePath("..")
-rotation_amount = 0.0
-scale_amount = Vector2(5, 5)
+start_rotation = 30.0
+start_scale = Vector2(5, 5)
+start_modulate = Color(1, 1, 1, 0)
 trans_type = 9
 ease_type = 1
 tween_duration = 0.6
 metadata/_custom_type_script = "uid://cv1tqomq6d35i"
 
-[node name="Whimsy" type="Sprite2D" parent="." unique_id=1458027421]
+[node name="Whimsy" type="Sprite2D" parent="Win" unique_id=1458027421]
 visible = false
 z_index = 2
+position = Vector2(576, 324)
 scale = Vector2(5, 5)
 texture = ExtResource("5_te5r4")
 
-[node name="StampEffect" type="Node" parent="Whimsy" unique_id=558363419 node_paths=PackedStringArray("affected_node")]
+[node name="StampEffect" type="Node" parent="Win/Whimsy" unique_id=558363419 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_aabum")
 affected_node = NodePath("..")
-rotation_amount = 0.0
-scale_amount = Vector2(5, 5)
+start_rotation = 30.0
+start_scale = Vector2(5, 5)
+start_modulate = Color(1, 1, 1, 0)
 trans_type = 9
 ease_type = 1
 tween_duration = 0.6
 metadata/_custom_type_script = "uid://cv1tqomq6d35i"
 
-[node name="LoseSprite" type="Sprite2D" parent="." unique_id=1111527764]
-visible = false
+[node name="Lose" type="Node" parent="." unique_id=899125736]
+
+[node name="LoseSprite" type="Sprite2D" parent="Lose" unique_id=1111527764]
+modulate = Color(1, 1, 1, 0)
 z_index = 4
+position = Vector2(575, 322)
 scale = Vector2(5, 5)
 texture = ExtResource("6_5sqgv")
+offset = Vector2(0.20000458, 0.40000153)
 
-[node name="Grow" type="Node" parent="LoseSprite" unique_id=1229713891 node_paths=PackedStringArray("affected_node")]
+[node name="Grow" type="Node" parent="Lose/LoseSprite" unique_id=1229713891 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_aabum")
 affected_node = NodePath("..")
-scale_amount = Vector2(5, 5)
+start_scale = Vector2(0, 0)
+start_modulate = Color(1, 1, 1, 0)
 trans_type = 10
 ease_type = 1
 tween_duration = 0.4
 metadata/_custom_type_script = "uid://cv1tqomq6d35i"
 
-[node name="LoseBackground" type="Sprite2D" parent="." unique_id=1895133413]
-visible = false
+[node name="LoseBackground" type="Sprite2D" parent="Lose" unique_id=1895133413]
+modulate = Color(1, 1, 1, 0)
 z_index = 3
+position = Vector2(575, 326)
 scale = Vector2(5, 5)
 texture = ExtResource("7_oxwul")
+offset = Vector2(0.20000458, -0.40000153)
 
-[node name="Grow" type="Node" parent="LoseBackground" unique_id=771227346 node_paths=PackedStringArray("affected_node")]
+[node name="Grow" type="Node" parent="Lose/LoseBackground" unique_id=771227346 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_aabum")
 affected_node = NodePath("..")
-position_amount = Vector2(0, 0)
-scale_amount = Vector2(5, 5)
-trans_type = 6
+start_scale = Vector2(0, 0)
+start_modulate = Color(1, 1, 1, 0)
+trans_type = 5
 ease_type = 1
 tween_duration = 0.8
 metadata/_custom_type_script = "uid://cv1tqomq6d35i"
 
-[node name="Slash1" type="Sprite2D" parent="." unique_id=1172066452]
-visible = false
+[node name="Slash1" type="Sprite2D" parent="Lose" unique_id=1172066452]
+modulate = Color(1, 1, 1, 0)
 z_index = 1
+position = Vector2(576, 324)
 scale = Vector2(5, 5)
 texture = ExtResource("8_h2vue")
 
-[node name="Grow" type="Node" parent="Slash1" unique_id=1228952661 node_paths=PackedStringArray("affected_node")]
+[node name="Grow" type="Node" parent="Lose/Slash1" unique_id=1228952661 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_aabum")
 affected_node = NodePath("..")
-scale_amount = Vector2(5, 5)
-trans_type = 6
-tween_duration = 0.2
+start_rotation = -5.0
+start_scale = Vector2(5, 5)
+start_modulate = Color(1, 1, 1, 0)
+trans_type = 9
+ease_type = 1
+tween_duration = 0.4
 metadata/_custom_type_script = "uid://cv1tqomq6d35i"
 
-[node name="Slash2" type="Sprite2D" parent="." unique_id=1297226855]
-visible = false
+[node name="Slash2" type="Sprite2D" parent="Lose" unique_id=1297226855]
+modulate = Color(1, 1, 1, 0)
 z_index = 1
+position = Vector2(576, 324)
 scale = Vector2(5, 5)
 texture = ExtResource("9_4bgr5")
 
-[node name="Grow" type="Node" parent="Slash2" unique_id=1901931147 node_paths=PackedStringArray("affected_node")]
+[node name="Grow" type="Node" parent="Lose/Slash2" unique_id=1901931147 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_aabum")
 affected_node = NodePath("..")
-scale_amount = Vector2(5, 5)
-trans_type = 6
-tween_duration = 0.2
+start_rotation = 5.0
+start_scale = Vector2(5, 5)
+start_modulate = Color(1, 1, 1, 0)
+trans_type = 9
+ease_type = 1
+tween_duration = 0.4
 metadata/_custom_type_script = "uid://cv1tqomq6d35i"
 
-[node name="Slash3" type="Sprite2D" parent="." unique_id=1001463333]
-visible = false
+[node name="Slash3" type="Sprite2D" parent="Lose" unique_id=1001463333]
+modulate = Color(1, 1, 1, 0)
 z_index = 1
+position = Vector2(576, 324)
 scale = Vector2(5, 5)
 texture = ExtResource("10_2l805")
 
-[node name="Grow" type="Node" parent="Slash3" unique_id=1687460369 node_paths=PackedStringArray("affected_node")]
+[node name="Grow" type="Node" parent="Lose/Slash3" unique_id=1687460369 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_aabum")
 affected_node = NodePath("..")
-scale_amount = Vector2(5, 5)
-trans_type = 6
-tween_duration = 0.2
+start_rotation = 3.0
+start_scale = Vector2(5, 5)
+start_modulate = Color(1, 1, 1, 0)
+trans_type = 9
+ease_type = 1
+tween_duration = 0.4
 metadata/_custom_type_script = "uid://cv1tqomq6d35i"

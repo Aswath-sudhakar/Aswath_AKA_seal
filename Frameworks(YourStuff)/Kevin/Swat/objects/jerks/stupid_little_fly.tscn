@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://cg00gbmoicog7"]
+
+[ext_resource type="Texture2D" uid="uid://bti5wg0xqhyv2" path="res://Frameworks(YourStuff)/Kevin/Swat/assets/jerks/bodies/fly_silver.png" id="1_k0exa"]
+[ext_resource type="Script" uid="uid://0xqunypppktd" path="res://Frameworks(YourStuff)/Kevin/Swat/objects/jerks/stupid_little_fly.gd" id="1_o6uyj"]
+[ext_resource type="Texture2D" uid="uid://bfcoaq0sol7ab" path="res://Frameworks(YourStuff)/Kevin/Swat/assets/jerks/fly_eyes.png" id="2_fkggl"]
+[ext_resource type="Texture2D" uid="uid://cdampitiwtuxr" path="res://Frameworks(YourStuff)/Kevin/Swat/assets/jerks/fly_mouths.png" id="3_eubsi"]
+
+[sub_resource type="Animation" id="Animation_eubsi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="Animation" id="Animation_o6uyj"]
+resource_name = "fly"
+length = 0.1
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_45gcw"]
+resource_name = "grow"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_45gcw"]
+_data = {
+&"RESET": SubResource("Animation_eubsi"),
+&"fly": SubResource("Animation_o6uyj"),
+&"grow": SubResource("Animation_45gcw")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6uyj"]
+
+[node name="Stupid Little Fly" type="CharacterBody2D" unique_id=1704917826]
+collision_layer = 3
+script = ExtResource("1_o6uyj")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=88039010]
+texture_filter = 1
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_k0exa")
+vframes = 2
+
+[node name="Eyes" type="Sprite2D" parent="Body" unique_id=1958558450]
+texture_filter = 1
+texture = ExtResource("2_fkggl")
+hframes = 2
+vframes = 2
+
+[node name="Mouth" type="Sprite2D" parent="Body" unique_id=2095295162]
+texture_filter = 1
+texture = ExtResource("3_eubsi")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1757748800]
+libraries/ = SubResource("AnimationLibrary_45gcw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1090829586]
+shape = SubResource("CircleShape2D_o6uyj")
+
+[node name="Direction Switch Timer" type="Timer" parent="." unique_id=1110142221]
+wait_time = 0.25
+one_shot = true
+
+[node name="Instrument" type="AudioStreamPlayer" parent="." unique_id=1519921537]
+volume_db = -2.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Direction Switch Timer" to="." method="_on_direction_switch_timer_timeout"]

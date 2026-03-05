@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ptsg4si05tkq"]
+
+[ext_resource type="Script" uid="uid://0e8hf71dtk1k" path="res://Frameworks(YourStuff)/EldritchGame/Music/AdaptiveMusic/eldritch_adaptive_music.gd" id="1_851is"]
+[ext_resource type="AudioStream" uid="uid://nucljekissl0" path="res://Frameworks(YourStuff)/EldritchGame/Music/bigcutething.mp3" id="2_kerr4"]
+[ext_resource type="AudioStream" uid="uid://dmksbprg0unkj" path="res://Frameworks(YourStuff)/EldritchGame/Music/ready,set,go.mp3" id="3_kl56y"]
+[ext_resource type="AudioStream" uid="uid://pceuiqsbb8ib" path="res://Frameworks(YourStuff)/EldritchGame/Music/biglosses.mp3" id="4_6vtew"]
+[ext_resource type="AudioStream" uid="uid://c7ish8e7pfvjy" path="res://Frameworks(YourStuff)/EldritchGame/Music/bigdubs.mp3" id="5_6gg5x"]
+
+[node name="EldritchAdaptiveMusic" type="Node" unique_id=1392659806 node_paths=PackedStringArray("master_track", "intro", "win_outro", "lose_outro") groups=["EldritchAdaptiveMusic"]]
+script = ExtResource("1_851is")
+master_track = NodePath("Master")
+intro = NodePath("Intro")
+win_outro = NodePath("Win")
+lose_outro = NodePath("Lose")
+bpm = 238.0
+metadata/_custom_type_script = "uid://0e8hf71dtk1k"
+
+[node name="Master" type="AudioStreamPlayer" parent="." unique_id=1118733510]
+stream = ExtResource("2_kerr4")
+
+[node name="Intro" type="AudioStreamPlayer" parent="." unique_id=715982423]
+stream = ExtResource("3_kl56y")
+
+[node name="Lose" type="AudioStreamPlayer" parent="." unique_id=233160218]
+stream = ExtResource("4_6vtew")
+
+[node name="Win" type="AudioStreamPlayer" parent="." unique_id=173852533]
+stream = ExtResource("5_6gg5x")

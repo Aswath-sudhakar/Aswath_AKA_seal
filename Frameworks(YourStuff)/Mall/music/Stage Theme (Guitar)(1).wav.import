@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cu61r4ylwysm4"
+path="res://.godot/imported/Stage Theme (Guitar)(1).wav-619a4d7682f24e31e7f71cf61de1c74b.sample"
+
+[deps]
+
+source_file="res://Frameworks(YourStuff)/Mall/music/Stage Theme (Guitar)(1).wav"
+dest_files=["res://.godot/imported/Stage Theme (Guitar)(1).wav-619a4d7682f24e31e7f71cf61de1c74b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

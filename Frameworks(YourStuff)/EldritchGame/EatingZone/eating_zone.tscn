@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bjtulespe1alq"]
+
+[ext_resource type="Script" uid="uid://b2ceqh4b8klx4" path="res://Frameworks(YourStuff)/EldritchGame/EatingZone/eating_zone.gd" id="1_uuyp0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuyp0"]
+size = Vector2(117, 212)
+
+[node name="EatingZone" type="Area2D" unique_id=210013374]
+collision_mask = 0
+script = ExtResource("1_uuyp0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62413484]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_uuyp0")
+disabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1050403470]
+wait_time = 0.5
+one_shot = true

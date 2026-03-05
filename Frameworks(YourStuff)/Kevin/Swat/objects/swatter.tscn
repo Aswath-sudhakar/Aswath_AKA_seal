@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://dj6ya0rfeqwoh"]
+
+[ext_resource type="Texture2D" uid="uid://lkrogl26lkl6" path="res://Frameworks(YourStuff)/Kevin/Swat/assets/objects/swatter.png" id="1_db03x"]
+[ext_resource type="Script" uid="uid://bf4mw50lqgnoe" path="res://Frameworks(YourStuff)/Kevin/Swat/objects/swatter.gd" id="1_wxjsj"]
+[ext_resource type="AudioStream" uid="uid://dehmkryivsbpj" path="res://Frameworks(YourStuff)/Kevin/Swat/audio/swing_and_a_miss.wav" id="3_7fq2w"]
+[ext_resource type="AudioStream" uid="uid://cfsog0yof7ta" path="res://Frameworks(YourStuff)/Kevin/Swat/audio/jerks_with_instruments/Flight of the Dumblefly - Fly Annilator 2.wav" id="3_m40fu"]
+[ext_resource type="AudioStream" uid="uid://bull84d3friuw" path="res://Frameworks(YourStuff)/Kevin/Swat/audio/fly_annihilator.wav" id="3_med7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db03x"]
+size = Vector2(48, 48)
+
+[sub_resource type="Animation" id="Animation_db03x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_7fq2w"]
+resource_name = "fake_swat"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_wxjsj"]
+resource_name = "swat"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.5, 0.5, 0.5, 1), Color(0.5019608, 0.5019608, 0.5019608, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fq2w"]
+_data = {
+&"RESET": SubResource("Animation_db03x"),
+&"fake_swat": SubResource("Animation_7fq2w"),
+&"swat": SubResource("Animation_wxjsj")
+}
+
+[node name="Swatter" type="Area2D" unique_id=398974462]
+z_index = 1
+collision_layer = 0
+collision_mask = 10
+monitoring = false
+monitorable = false
+script = ExtResource("1_wxjsj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1482065285]
+shape = SubResource("RectangleShape2D_db03x")
+debug_color = Color(0.85886323, 0.00070001365, 0.87856287, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=147719812]
+texture_filter = 1
+position = Vector2(0, 22)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_db03x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1427505562]
+libraries/ = SubResource("AnimationLibrary_7fq2w")
+
+[node name="Fly Annihilator" type="AudioStreamPlayer" parent="." unique_id=426265688]
+stream = ExtResource("3_med7j")
+volume_db = -5.0
+
+[node name="Swing and a Miss" type="AudioStreamPlayer" parent="." unique_id=53636290]
+stream = ExtResource("3_7fq2w")
+volume_db = -10.0
+
+[node name="Bass Boost" type="AudioStreamPlayer" parent="." unique_id=115339442]
+stream = ExtResource("3_m40fu")
+volume_db = -80.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

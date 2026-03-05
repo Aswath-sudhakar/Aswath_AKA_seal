@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://diiadnkgobw8l"]
+
+[ext_resource type="Script" uid="uid://da023o5y5kqfx" path="res://Frameworks(YourStuff)/Mall/button.tscn.gd" id="1_u77vi"]
+
+[node name="Button" type="Button" unique_id=1702309862]
+offset_right = 149.0
+offset_bottom = 79.0
+text = "asdasd"
+script = ExtResource("1_u77vi")
