@@ -1,5 +1,7 @@
 class_name GameManager extends Node
 
+const COVERUP = preload("res://Misc/Transitions/coverup/coverup.tscn")
+
 @onready var start_point: Marker2D = $StartPoint
 @onready var play_point: Marker2D = $PlayPoint
 @onready var end_point: Marker2D = $EndPoint
@@ -19,11 +21,18 @@ const TROLLEY_MAIN_SCENE = preload("res://Frameworks(YourStuff)/TrolleyProblem/t
 const ROCK_SKIP = preload("res://Frameworks(YourStuff)/rock-skpping/ww_game.tscn")
 const TYSON = preload("res://Frameworks(YourStuff)/Connor/main.tscn")
 const FINISH_HIM = preload("res://Frameworks(YourStuff)/Kevin/FinishHim/scenes/game_container.tscn")
+const REPAIR = preload("res://Frameworks(YourStuff)/Kevin/Repair/scenes/game_container.tscn")
+const SWAT = preload("res://Frameworks(YourStuff)/Kevin/Swat/scenes/game.tscn")
 const MIX_PAINT_JUDE_ = preload("res://Frameworks(YourStuff)/Jude/MixColors/MixPaint(Jude).tscn")
 const EXAMPLE_SCENE_MUSIC = preload("res://ProoblesToys(PolishTools)/Music/ExampleSceneMusic.tscn")
 const PONG = preload("res://Frameworks(YourStuff)/Pong;)/scenes/main.tscn")
+const PLANET_GAME = preload("res://Frameworks(YourStuff)/EldritchGame/EldritchGameMain/planet_game.tscn")
 
-var all_games : Array[PackedScene] = [TRICK_TAPE, BASEPLATE, PONG]
+<<<<<<< main
+var all_games : Array[PackedScene] = [FINISH_HIM, REPAIR, SWAT]
+=======
+var all_games : Array[PackedScene] = [PLANET_GAME,PONG,VANDALISM_JUDE_,ROCK_SKIP,TYSON,FINISH_HIM,MIX_PAINT_JUDE_]
+>>>>>>> main
 
 ## List of games left to play this stage before time scale increases
 var games_to_play_this_stage : Array[PackedScene]
@@ -77,11 +86,22 @@ func _on_game_ended(won : bool):
 	switch_scene(won)
 
 func switch_scene(won: bool):
+	await RenderingServer.frame_post_draw
+	var view_texture = get_viewport().get_texture().get_image()
+	var coverup :CoverUp = COVERUP.instantiate()
+	coverup.coverup_image(view_texture)
+	add_child(coverup)
+	old_scene.queue_free()
+	await old_scene.tree_exited
+	old_scene = coverup
+	
+	
+	
 	var next_game : PackedScene = games_to_play_this_stage.pick_random()
 	games_to_play_this_stage.erase(next_game)
 	var new_game : Game = next_game.instantiate()
 	add_child.call_deferred(new_game)
-	
+
 	await new_game.ready
 	new_scene = new_game
 	new_game.end_game.connect(_on_game_ended)

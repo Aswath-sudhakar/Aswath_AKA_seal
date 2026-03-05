@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://ddd6ayr1ipn0g"]
+
+[ext_resource type="Script" uid="uid://ouqwk841gx2s" path="res://Frameworks(YourStuff)/EldritchGame/SceneSwitcher/eldritch_scene_switcher.gd" id="1_xbw58"]
+[ext_resource type="Script" uid="uid://cbrntoax56ix8" path="res://Frameworks(YourStuff)/EldritchGame/Effect Components/Scripts/Effect Sequencers/control_node_effect_sequencer.gd" id="2_4c03h"]
+[ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Frameworks(YourStuff)/EldritchGame/Effect Components/Scripts/Effects/control_node_effect.gd" id="3_8dl6r"]
+[ext_resource type="Script" uid="uid://dtxea7wlkf3vx" path="res://Frameworks(YourStuff)/EldritchGame/Effect Components/Scripts/Effect Sequencers/node2D_effect_sequencer.gd" id="4_trvhm"]
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Frameworks(YourStuff)/EldritchGame/Effect Components/Scripts/Effects/node2D_effect.gd" id="5_333eq"]
+[ext_resource type="PackedScene" uid="uid://bh166ecxqy5qu" path="res://Frameworks(YourStuff)/EldritchGame/Instructions/introduction_screen.tscn" id="6_4xbgj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u3dtu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wkj5q"]
+
+[node name="EldritchSceneSwitcher" type="Node2D" unique_id=1869873102]
+process_mode = 3
+script = ExtResource("1_xbw58")
+
+[node name="Timer" type="Timer" parent="." unique_id=1021661306]
+process_mode = 1
+one_shot = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1675345068]
+process_mode = 3
+offset_left = 966.0
+offset_top = 457.0
+offset_right = 1101.0
+offset_bottom = 592.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = SubResource("CompressedTexture2D_u3dtu")
+texture_progress = SubResource("CompressedTexture2D_wkj5q")
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeLeftNotifier" type="Node" parent="TextureProgressBar" unique_id=1879674460 node_paths=PackedStringArray("affected_node", "effect_array")]
+process_mode = 3
+script = ExtResource("2_4c03h")
+affected_node = NodePath("..")
+effect_array = [NodePath("TimeLeftNotifierStart"), NodePath("TimeLeftNotifierEnd")]
+metadata/_custom_type_script = "uid://cbrntoax56ix8"
+
+[node name="TimeLeftNotifierStart" type="Node" parent="TextureProgressBar/TimeLeftNotifier" unique_id=997564645 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("3_8dl6r")
+affected_node = NodePath("../..")
+start_scale = Vector2(1, 1)
+end_scale = Vector2(1.2, 1.2)
+trans_type = 9
+ease_type = 2
+tween_duration = 0.1
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="TimeLeftNotifierEnd" type="Node" parent="TextureProgressBar/TimeLeftNotifier" unique_id=1604943229]
+script = ExtResource("3_8dl6r")
+start_scale = Vector2(1.2, 1.2)
+end_scale = Vector2(1, 1)
+tween_duration = 0.1
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="FadeScreen" type="Node2D" parent="." unique_id=671950097]
+process_mode = 3
+
+[node name="FadePlayer" type="Node" parent="FadeScreen" unique_id=1880858954 node_paths=PackedStringArray("affected_node", "effect_array")]
+unique_name_in_owner = true
+process_mode = 3
+script = ExtResource("4_trvhm")
+affected_node = NodePath("..")
+effect_array = [NodePath("Appear"), NodePath("Disappear")]
+metadata/_custom_type_script = "uid://dtxea7wlkf3vx"
+
+[node name="Appear" type="Node" parent="FadeScreen/FadePlayer" unique_id=1456476275 node_paths=PackedStringArray("affected_node")]
+unique_name_in_owner = true
+process_mode = 3
+script = ExtResource("5_333eq")
+affected_node = NodePath("../..")
+start_modulate = Color(1, 1, 1, 0)
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Disappear" type="Node" parent="FadeScreen/FadePlayer" unique_id=193041307 node_paths=PackedStringArray("affected_node")]
+unique_name_in_owner = true
+process_mode = 3
+script = ExtResource("5_333eq")
+affected_node = NodePath("../..")
+end_modulate = Color(1, 1, 1, 0)
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="ColorRect" type="ColorRect" parent="FadeScreen" unique_id=2046308171]
+process_mode = 3
+z_index = 1
+offset_right = 1152.0
+offset_bottom = 640.0
+mouse_filter = 2
+color = Color(0.12156863, 0.12156863, 0.11764706, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="IntroductionScreen" parent="." unique_id=773554877 instance=ExtResource("6_4xbgj")]
+z_index = 4
+position = Vector2(576, 320)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

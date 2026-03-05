@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bogstkcyodj4r"]
+
+[ext_resource type="Script" uid="uid://c2jfuamm50d34" path="res://objects/the_music_man.gd" id="1_nhaa4"]
+[ext_resource type="AudioStream" uid="uid://cfsog0yof7ta" path="res://audio/jerks_with_instruments/Flight of the Dumblefly - Fly Annilator 2.wav" id="2_8toaw"]
+
+[node name="The Music Man" type="Node2D" unique_id=530888649]
+script = ExtResource("1_nhaa4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=855424446]
+stream = ExtResource("2_8toaw")
+volume_db = -80.0

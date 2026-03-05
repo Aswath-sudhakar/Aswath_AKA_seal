@@ -15,7 +15,7 @@ func create_casing(game : Game) -> SubViewportContainer:
 	game.reparent(sub_view_port)
 	sub_view_port_container.process_mode = Node.PROCESS_MODE_ALWAYS
 	sub_view_port.process_mode = Node.PROCESS_MODE_ALWAYS
-	
+	sub_view_port.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
 	
 	return sub_view_port_container
 

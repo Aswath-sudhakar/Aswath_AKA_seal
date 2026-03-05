@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cqknxiwwqry2u"]
+
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Effect Components/Scripts/Effects/node2D_effect.gd" id="1_25cbn"]
+[ext_resource type="Texture2D" uid="uid://dmq8bdbng4qog" path="res://icon.svg" id="2_p3a1m"]
+[ext_resource type="Script" uid="uid://dtxea7wlkf3vx" path="res://Effect Components/Scripts/Effect Sequencers/node2D_effect_sequencer.gd" id="3_en1hb"]
+
+[node name="EffectTestScene" type="Node" unique_id=1437132771]
+
+[node name="Control" type="Control" parent="." unique_id=738570213]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=738079858]
+texture = ExtResource("2_p3a1m")
+
+[node name="EffectSequencer" type="Node" parent="Control/Sprite2D" unique_id=810145370 node_paths=PackedStringArray("affected_node", "effect_array")]
+script = ExtResource("3_en1hb")
+affected_node = NodePath("..")
+loop = true
+autostart = true
+effect_array = [NodePath("Effect1"), NodePath("Effect2"), NodePath("Effect3")]
+metadata/_custom_type_script = "uid://dtxea7wlkf3vx"
+
+[node name="Effect1" type="Node" parent="Control/Sprite2D/EffectSequencer" unique_id=770835643 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("1_25cbn")
+affected_node = NodePath("../..")
+start_position = Vector2(-300, -200)
+end_position = Vector2(300, -200)
+start_rotation = 0.0
+end_rotation = 90.0
+trans_type = 7
+ease_type = 2
+tween_duration = 1.2
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Effect2" type="Node" parent="Control/Sprite2D/EffectSequencer" unique_id=618563170]
+script = ExtResource("1_25cbn")
+start_position = Vector2(300, -200)
+end_position = Vector2(-300, 200)
+start_rotation = 90.0
+end_rotation = -90.0
+trans_type = 7
+ease_type = 2
+tween_duration = 1.2
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Effect3" type="Node" parent="Control/Sprite2D/EffectSequencer" unique_id=568118017]
+script = ExtResource("1_25cbn")
+start_position = Vector2(-300, 200)
+end_position = Vector2(300, 200)
+start_rotation = -90.0
+end_rotation = 0.0
+trans_type = 7
+ease_type = 2
+tween_duration = 1.2
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"

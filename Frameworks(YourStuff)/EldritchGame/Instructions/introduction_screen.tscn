@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://bh166ecxqy5qu"]
+
+[ext_resource type="Script" uid="uid://c302lviukvkgv" path="res://Frameworks(YourStuff)/EldritchGame/Instructions/introduction_screen.gd" id="1_4l27e"]
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Frameworks(YourStuff)/EldritchGame/Effect Components/Scripts/Effects/node2D_effect.gd" id="2_4l27e"]
+[ext_resource type="Texture2D" uid="uid://opfhngr4vm2c" path="res://Frameworks(YourStuff)/EldritchGame/Assets/Intro_Screen.png" id="3_almnl"]
+[ext_resource type="Texture2D" uid="uid://iv4vb8qokgiy" path="res://Frameworks(YourStuff)/EldritchGame/Assets/Intro2.png" id="4_c08fr"]
+
+[sub_resource type="Animation" id="Animation_c08fr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroScreen:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_almnl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IntroScreen:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IntroScreen:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IntroScreen:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bekip"]
+resource_name = "intro"
+length = 2.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroScreen:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IntroScreen:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_almnl")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IntroScreen:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IntroScreen:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msnbl"]
+_data = {
+&"RESET": SubResource("Animation_c08fr"),
+&"intro": SubResource("Animation_bekip")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bekip"]
+atlas = ExtResource("4_c08fr")
+region = Rect2(0, 0, 1200, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msnbl"]
+atlas = ExtResource("4_c08fr")
+region = Rect2(1200, 0, 1200, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho43e"]
+atlas = ExtResource("4_c08fr")
+region = Rect2(2400, 0, 1200, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lrmt"]
+atlas = ExtResource("4_c08fr")
+region = Rect2(0, 700, 1200, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5acfp"]
+atlas = ExtResource("4_c08fr")
+region = Rect2(1200, 700, 1200, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5vmd"]
+atlas = ExtResource("4_c08fr")
+region = Rect2(2400, 700, 1200, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e508p"]
+atlas = ExtResource("4_c08fr")
+region = Rect2(0, 1400, 1200, 700)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjqv6"]
+atlas = ExtResource("4_c08fr")
+region = Rect2(1200, 1400, 1200, 700)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6hjh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bekip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msnbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho43e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lrmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5acfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5vmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e508p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjqv6")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[node name="IntroductionScreen" type="Node2D" unique_id=773554877]
+process_mode = 3
+z_index = 5
+script = ExtResource("1_4l27e")
+
+[node name="Dissapear" type="Node" parent="." unique_id=260553587 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_4l27e")
+affected_node = NodePath("..")
+end_modulate = Color(1, 1, 1, 0)
+trans_type = 5
+ease_type = 2
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="IntroScreen" type="Sprite2D" parent="." unique_id=1980782012]
+visible = false
+texture = ExtResource("3_almnl")
+hframes = 3
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=981673901]
+libraries/ = SubResource("AnimationLibrary_msnbl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1643347732]
+sprite_frames = SubResource("SpriteFrames_x6hjh")
+animation = &"new_animation"
+frame_progress = 0.78673697

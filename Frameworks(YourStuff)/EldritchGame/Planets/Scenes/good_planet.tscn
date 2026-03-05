@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://jaq2sk636hlb"]
+
+[ext_resource type="Script" uid="uid://bxyumpqg8suai" path="res://Frameworks(YourStuff)/EldritchGame/Planets/Script/good_planet.gd" id="1_y1esw"]
+[ext_resource type="Texture2D" uid="uid://b1aaiyqwwnxjx" path="res://Frameworks(YourStuff)/EldritchGame/Assets/Good_Planet1.png" id="2_y1esw"]
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Frameworks(YourStuff)/EldritchGame/Effect Components/Scripts/Effects/node2D_effect.gd" id="3_hjphg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0l05c"]
+radius = 24.0
+
+[node name="Planet" type="Node2D" unique_id=2078059064]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_y1esw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=881555108]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_y1esw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=798091180]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1587146743]
+shape = SubResource("CircleShape2D_0l05c")
+script = ExtResource("1_y1esw")
+
+[node name="Node2DEffect" type="Node" parent="." unique_id=1753830359 node_paths=PackedStringArray("affected_node")]
+unique_name_in_owner = true
+script = ExtResource("3_hjphg")
+affected_node = NodePath("../Sprite2D")
+end_rotation = 360.0
+end_scale = Vector2(0, 0)
+trans_type = 11
+ease_type = 2
+tween_duration = 0.3
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="BeatEffect" type="Node" parent="." unique_id=484293925 node_paths=PackedStringArray("affected_node")]
+unique_name_in_owner = true
+script = ExtResource("3_hjphg")
+affected_node = NodePath("../Sprite2D")
+start_scale = Vector2(0.8, 0.5)
+end_scale = Vector2(0.6, 1)
+reset_on_completion = true
+trans_type = 10
+tween_duration = 0.1
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

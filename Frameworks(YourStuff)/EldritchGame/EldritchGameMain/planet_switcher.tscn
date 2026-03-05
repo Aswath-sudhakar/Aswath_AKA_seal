@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ci8hcwd6qs4nv"]
+
+[ext_resource type="Script" uid="uid://ssv17t7js8ye" path="res://Frameworks(YourStuff)/EldritchGame/EldritchGameMain/planets_switcher.gd" id="1_ck1lt"]
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Frameworks(YourStuff)/EldritchGame/Effect Components/Scripts/Effects/node2D_effect.gd" id="2_bticd"]
+
+[node name="PlanetSwitcher" type="Node" unique_id=1189403418]
+script = ExtResource("1_ck1lt")
+metadata/_custom_type_script = "uid://ssv17t7js8ye"
+
+[node name="Spawn" type="Node" parent="." unique_id=1510626101]
+script = ExtResource("2_bticd")
+trans_type = 10
+ease_type = 2
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Die" type="Node" parent="." unique_id=979689632]
+script = ExtResource("2_bticd")
+end_position = Vector2(inf, 1000)
+trans_type = 10
+ease_type = 2
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="SpawnLocation" type="Marker2D" parent="." unique_id=304734543]
+position = Vector2(0, -434)

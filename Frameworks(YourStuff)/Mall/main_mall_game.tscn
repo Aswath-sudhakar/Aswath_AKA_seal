@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cakh0wv3cg3ij"]
+
+[ext_resource type="Texture2D" uid="uid://cyyenrerkwd77" path="res://Misc/BaseGameAssets/icon.svg" id="1_22opl"]
+[ext_resource type="Script" uid="uid://bmxhf3q382k4r" path="res://point_light_2d.gd" id="1_edhap"]
+[ext_resource type="Script" uid="uid://c8gldqcbn0vqb" path="res://light_character.gd" id="3_p774y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ayml"]
+size = Vector2(79, 73)
+
+[sub_resource type="Gradient" id="Gradient_p774y"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7ayml"]
+gradient = SubResource("Gradient_p774y")
+fill = 1
+fill_from = Vector2(0.49295774, 0.4964789)
+fill_to = Vector2(0.8239437, 0.15845071)
+
+[node name="MainMallGame" type="Node2D" unique_id=30059727]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1031794996]
+position = Vector2(571, 327)
+scale = Vector2(9.5625, 5.5)
+texture = ExtResource("1_22opl")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=596870004]
+blend_mode = 1
+
+[node name="Light_Character" type="CharacterBody2D" parent="." unique_id=1592146174]
+script = ExtResource("3_p774y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light_Character" unique_id=392946738]
+position = Vector2(573, 350)
+shape = SubResource("RectangleShape2D_7ayml")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="Light_Character" unique_id=1594497829]
+position = Vector2(566, 306)
+scale = Vector2(5, 5)
+texture = SubResource("GradientTexture2D_7ayml")
+script = ExtResource("1_edhap")

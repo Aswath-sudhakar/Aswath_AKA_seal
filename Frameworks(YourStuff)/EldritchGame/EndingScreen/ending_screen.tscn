@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c0yej11t1qghx"]
+
+[ext_resource type="Script" uid="uid://ck7qfl8u6s3bs" path="res://Frameworks(YourStuff)/EldritchGame/EndingScreen/ending_screen.gd" id="1_8fm2o"]
+[ext_resource type="Texture2D" uid="uid://vl63h7nnibam" path="res://Frameworks(YourStuff)/EldritchGame/Assets/Transition.png" id="1_pqxlu"]
+
+[sub_resource type="Animation" id="Animation_8fm2o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_pqxlu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ut7bj"]
+resource_name = "exit-jame"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_pqxlu")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msqdr"]
+_data = {
+&"RESET": SubResource("Animation_8fm2o"),
+&"exit-jame": SubResource("Animation_ut7bj")
+}
+
+[node name="EndingScreen" type="Node2D" unique_id=320439500]
+process_mode = 3
+z_index = 6
+script = ExtResource("1_8fm2o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1114829151]
+texture = ExtResource("1_pqxlu")
+hframes = 4
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=766398565]
+libraries/ = SubResource("AnimationLibrary_msqdr")
